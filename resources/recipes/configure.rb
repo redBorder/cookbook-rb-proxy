@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: manager
+# Cookbook Name:: proxy
 # Recipe:: configure
 #
-# Copyright 2016, redborder
+# Copyright 2022, redborder
 #
 # AFFERO GENERAL PUBLIC LICENSE V3
 #

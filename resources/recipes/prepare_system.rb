@@ -1,12 +1,12 @@
 #
-# Cookbook Name:: manager
+# Cookbook Name:: proxy
 # Recipe:: prepare_system
 #
-# Copyright 2016, redborder
+# Copyright 2022, redborder
 #
 # AFFERO GENERAL PUBLIC LICENSE V3
 #
-extend Rb_manager::Helpers
+extend Rb_proxy::Helpers
 
 puts "Hello im in prepare_system"
 
