@@ -1,5 +1,5 @@
 name            'rb-proxy'
-maintainer      'Miguel Negrón'
+maintainer      'Miguel Negron'
 maintainer_email 'manegron@redborder.com'
 license          'All rights reserved'
 description      'Installs/Configures redborder proxy'
