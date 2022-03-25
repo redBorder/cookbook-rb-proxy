@@ -13,6 +13,11 @@ execute "Clean yum metadata" do
   command "yum clean metadata"
 end
 
+# Stop rb-register
+service "rb-register" do
+  action [:disable, :stop]
+end
+
 #Configure and enable chef-client
 yum_package "redborder-chef-client" do
   flush_cache [:before]
