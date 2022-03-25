@@ -15,14 +15,14 @@ proxy_services = proxy_services()
 zookeeper_config "Configure Zookeeper" do
     port node["zookeeper"]["port"]
     memory node["redborder"]["memory_services"]["zookeeper"]["memory"]
-    hosts ["localhost"]
+    hosts [node.name]
     action (proxy_services["zookeeper"] ? [:add] : [:remove])
   end
 
 kafka_config "Configure Kafka" do
     memory node["redborder"]["memory_services"]["kafka"]["memory"]
     #maxsize node["redborder"]["manager"]["hd_services_current"]["kafka"]
-    managers_list ["localhost"]
+    managers_list [node.name]
     zk_hosts node["redborder"]["zookeeper"]["zk_hosts"]
     host_index node["redborder"]["kafka"]["host_index"]
     action (proxy_services["kafka"] ? [:add] : [:remove])
