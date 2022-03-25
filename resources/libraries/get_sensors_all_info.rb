@@ -5,7 +5,7 @@ module Rb_proxy
         sensor_types = ["ips-sensor","ipsv2-sensor","ipscp-sensor","ipsg-sensor","vault-sensor","flow-sensor","mse-sensor","meraki-sensor","cisco-cloudproxy","proxy-sensor","social-sensor","scanner-sensor","mse-sensor","meraki-sensor","ale-sensor","cep-sensor"]
   
         sensor_types.each do |s_type|
-          sensors = search(:node, "role:#{s_type}").sort
+          sensors = search(:node, "role:#{s_type} and redborder_parent_id:#{node.redborder.sensor_id}").sort
   
           sensors_info[s_type] = []
           sensors.each do |s|
