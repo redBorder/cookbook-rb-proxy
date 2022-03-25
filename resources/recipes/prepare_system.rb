@@ -39,8 +39,8 @@ else
   end
 end
 
-cdomain = ""
-File.open('/etc/redborder/cdomain') {|f| cdomain = f.readline.chomp}
+cdomain = "redborder.cluster"
+#File.open('/etc/redborder/cdomain') {|f| cdomain = f.readline.chomp}
 node.default["redborder"]["cdomain"] = cdomain
 
 #get sensors info
