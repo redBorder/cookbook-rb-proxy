@@ -14,8 +14,11 @@ execute "Clean yum metadata" do
 end
 
 # Stop rb-register
-service "rb-register" do
-  action [:disable, :stop]
+if File.exist?"/etc/redborder/proxy-installed.txt"
+  service "rb-register" do
+    ignore_failure true
+    action [:disable, :stop]
+  end
 end
 
 #Configure and enable chef-client
