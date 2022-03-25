@@ -79,7 +79,7 @@ rbsocial_config "Configure redborder-social" do
 end
 
 rsyslog_config "Configure rsyslog" do
-    vault_nodes node["redborder"]["sensors_info_all"]["vault-sensor"] + node["redborder"]["sensors_info_all"]["cep-sensor"]
+    vault_nodes node["redborder"]["sensors_info_all"]["vault-sensor"]
     ips_nodes node["redborder"]["sensors_info_all"]["ips-sensor"] + node["redborder"]["sensors_info_all"]["ipsv2-sensor"] + node["redborder"]["sensors_info_all"]["ipscp-sensor"]
     action (proxy_services["rsyslog"] ? [:add] : [:remove])
 end
