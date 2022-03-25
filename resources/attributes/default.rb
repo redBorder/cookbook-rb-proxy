@@ -43,22 +43,22 @@ default["redborder"]["memory_services"]["n2klocd"] = {"count" => 10, "memory" =>
 
 default["redborder"]["services"] = {}
 default["redborder"]["services"]["chef-client"]               = true
-default["redborder"]["services"]["kafka"]                     = false
-default["redborder"]["services"]["zookeeper"]                 = false
-default["redborder"]["services"]["rb-monitor"]                = false
-default["redborder"]["services"]["geoip"]                     = false
+default["redborder"]["services"]["kafka"]                     = true
+default["redborder"]["services"]["zookeeper"]                 = true
+default["redborder"]["services"]["rb-monitor"]                = true
+default["redborder"]["services"]["geoip"]                     = true
 default["redborder"]["services"]["redborder-monitor"]         = true
-default["redborder"]["services"]["redborder-scanner"]         = false
+default["redborder"]["services"]["redborder-scanner"]         = true
 default["redborder"]["services"]["snmp"]                      = true
 default["redborder"]["services"]["ntp"]                       = true
-default["redborder"]["services"]["f2k"]                       = false
+default["redborder"]["services"]["f2k"]                       = true
 default["redborder"]["services"]["logstash"]                  = false
-default["redborder"]["services"]["pmacct"]                    = false
+default["redborder"]["services"]["pmacct"]                    = true
 default["redborder"]["services"]["rsyslog"]                   = true
-default["redborder"]["services"]["redborder-social"]          = false
+default["redborder"]["services"]["redborder-social"]          = true
 default["redborder"]["services"]["redborder-nmsp"]            = false
-default["redborder"]["services"]["redborder-ale"]             = false
-default["redborder"]["services"]["n2klocd"]                   = false
+default["redborder"]["services"]["redborder-ale"]             = true
+default["redborder"]["services"]["n2klocd"]                   = true
 default["redborder"]["services"]["radiusd"]                   = false
 
 default["redborder"]["systemdservices"]["chef-client"]            = ["chef-client"]

@@ -21,7 +21,7 @@ zookeeper_config "Configure Zookeeper" do
 
 kafka_config "Configure Kafka" do
     memory node["redborder"]["memory_services"]["kafka"]["memory"]
-    maxsize node["redborder"]["manager"]["hd_services_current"]["kafka"]
+    #maxsize node["redborder"]["manager"]["hd_services_current"]["kafka"]
     managers_list ["localhost"]
     zk_hosts node["redborder"]["zookeeper"]["zk_hosts"]
     host_index node["redborder"]["kafka"]["host_index"]
@@ -88,6 +88,7 @@ rbnmsp_config "Configure redborder-nmsp" do
     memory node["redborder"]["memory_services"]["redborder-nmsp"]["memory"]
     proxy_nodes node["redborder"]["sensors_info"]["proxy-sensor"]
     flow_nodes node["redborder"]["sensors_info_all"]["flow-sensor"]
+    hosts node["redborder"]["zookeeper"]["zk_hosts"]
     action (proxy_services["redborder-nmsp"] ? [:add, :configure_keys] : [:remove])
 end
   
