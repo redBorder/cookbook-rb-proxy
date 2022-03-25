@@ -55,7 +55,7 @@ node.default["redborder"]["namespaces"] = get_namespaces
 #get string with all zookeeper hosts and port separated by commas, its needed for multiples services
 zk_port = node["redborder"]["zookeeper"]["port"]
 #zk_hosts = ["localhost"].map {|z| "#{z}.node:#{zk_port}"}.join(',')
-node.default["redborder"]["zookeeper"]["zk_hosts"] = "zookeeper.service.#{node["redborder"]["cdomain"]}:#{node["redborder"]["zookeeper"]["port"]}"
+node.default["redborder"]["zookeeper"]["zk_hosts"] = "zookeeper.service:#{node["redborder"]["zookeeper"]["port"]}"
 
 #memory
 #getting total system memory less 10% reserved by system
