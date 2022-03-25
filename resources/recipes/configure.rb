@@ -80,13 +80,11 @@ end
 
 rsyslog_config "Configure rsyslog" do
     vault_nodes node["redborder"]["sensors_info_all"]["vault-sensor"]
-    ips_nodes node["redborder"]["sensors_info_all"]["ips-sensor"] + node["redborder"]["sensors_info_all"]["ipsv2-sensor"] + node["redborder"]["sensors_info_all"]["ipscp-sensor"]
     action (proxy_services["rsyslog"] ? [:add] : [:remove])
 end
   
 rbnmsp_config "Configure redborder-nmsp" do
     memory node["redborder"]["memory_services"]["redborder-nmsp"]["memory"]
-    proxy_nodes node["redborder"]["sensors_info"]["proxy-sensor"]
     flow_nodes node["redborder"]["sensors_info_all"]["flow-sensor"]
     hosts node["redborder"]["zookeeper"]["zk_hosts"]
     action (proxy_services["redborder-nmsp"] ? [:add, :configure_keys] : [:remove])
@@ -95,7 +93,7 @@ end
 n2klocd_config "Configure n2klocd" do
     mse_nodes node["redborder"]["sensors_info_all"]["mse-sensor"]
     meraki_nodes node["redborder"]["sensors_info_all"]["meraki-sensor"]
-    n2klocd_managers ["localhost"]
+    n2klocd_managers [node.name]
     memory node["redborder"]["memory_services"]["n2klocd"]["memory"]
     action (proxy_services["n2klocd"] ? [:add] : [:remove])
 end
