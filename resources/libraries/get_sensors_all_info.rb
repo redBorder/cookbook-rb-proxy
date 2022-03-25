@@ -2,7 +2,7 @@ module Rb_proxy
     module Helpers
       def get_sensors_all_info()
         sensors_info = {}
-        sensor_types = ["ips-sensor","ipsv2-sensor","ipscp-sensor","ipsg-sensor","vault-sensor","flow-sensor","mse-sensor","meraki-sensor","cisco-cloudproxy","proxy-sensor","social-sensor","scanner-sensor","mse-sensor","meraki-sensor","ale-sensor","cep-sensor"]
+        sensor_types = ["vault-sensor","flow-sensor","mse-sensor","social-sensor","scanner-sensor","meraki-sensor","ale-sensor", "device-sensor"]
   
         sensor_types.each do |s_type|
           sensors = search(:node, "role:#{s_type} and redborder_parent_id:#{node.redborder.sensor_id}").sort

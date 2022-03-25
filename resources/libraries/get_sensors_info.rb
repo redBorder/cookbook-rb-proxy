@@ -2,7 +2,7 @@ module Rb_proxy
     module Helpers
       def get_sensors_info()
         sensors_info = {}
-        sensor_types = ["ips-sensor","ipsv2-sensor","ipscp-sensor","ipsg-sensor","flow-sensor","mse-sensor","meraki-sensor","cisco-cloudproxy","proxy-sensor"]
+        sensor_types = ["vault-sensor","flow-sensor","mse-sensor","social-sensor","scanner-sensor","meraki-sensor","ale-sensor", "device-sensor"]
         locations = node["redborder"]["locations"]
   
   
