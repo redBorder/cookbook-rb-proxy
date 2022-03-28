@@ -40,6 +40,7 @@ default["redborder"]["memory_services"]["f2k"] = { "count" => 40, "memory" => 0 
 default["redborder"]["memory_services"]["redborder-social"] = {"count" => 10, "memory" => 0 }
 default["redborder"]["memory_services"]["redborder-nmsp"] = {"count" => 10, "memory" => 0 }
 default["redborder"]["memory_services"]["n2klocd"] = {"count" => 10, "memory" => 0 }
+default["redborder"]["memory_services"]["k2http"] = {"count" => 10, "memory" => 0 }
 
 default["redborder"]["services"] = {}
 default["redborder"]["services"]["chef-client"]               = true
@@ -60,6 +61,7 @@ default["redborder"]["services"]["redborder-nmsp"]            = false
 default["redborder"]["services"]["redborder-ale"]             = true
 default["redborder"]["services"]["n2klocd"]                   = true
 default["redborder"]["services"]["radiusd"]                   = false
+default["redborder"]["services"]["k2http"]                    = true
 
 default["redborder"]["systemdservices"]["chef-client"]            = ["chef-client"]
 default["redborder"]["systemdservices"]["kafka"]                  = ["kafka"]
@@ -78,4 +80,5 @@ default["redborder"]["systemdservices"]["redborder-nmsp"]         = ["redborder-
 default["redborder"]["systemdservices"]["redborder-ale"]          = ["redborder-ale"]
 default["redborder"]["systemdservices"]["n2klocd"]                = ["n2klocd"]
 default["redborder"]["systemdservices"]["radiusd"]                = ["radiusd"]
+default["redborder"]["systemdservices"]["k2http"]                 = ["k2http"]
 
