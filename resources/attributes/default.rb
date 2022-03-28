@@ -11,6 +11,7 @@ default["redborder"]["locations"] = [
                                       "building", "building_uuid", "floor", "floor_uuid"
                                     ]
 
+default["redborder"]["proxy"]["insecure"] = true
 
 #chef-client
 default["chef-client"]["interval"] = 300
