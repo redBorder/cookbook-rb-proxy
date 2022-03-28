@@ -112,7 +112,7 @@ end
 
 # TODO: replace node["redborder"]["services"] in action with "proxy_services".. 
 k2http_config "Configure k2http" do
-    action (proxy_services["k2http" ? [:add] : [:remove])
+    action (proxy_services["k2http"] ? [:add] : [:remove])
 end
 
 
