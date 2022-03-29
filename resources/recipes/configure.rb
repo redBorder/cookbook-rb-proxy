@@ -110,5 +110,10 @@ freeradius_config "Configure radiusd" do
     action (node["redborder"]["services"]["radiusd"] ? [:add] : [:remove])
 end
 
+# TODO: replace node["redborder"]["services"] in action with "proxy_services".. 
+k2http_config "Configure k2http" do
+    action (proxy_services["k2http"] ? [:add] : [:remove])
+end
+
 
 
