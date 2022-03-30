@@ -14,7 +14,7 @@ execute "Clean yum metadata" do
 end
 
 # Stop rb-register
-if File.exist?"/etc/redborder/proxy-installed.txt"
+if File.exist?"/etc/redborder/sensor-installed.txt"
   service "rb-register" do
     ignore_failure true
     action [:disable, :stop]
