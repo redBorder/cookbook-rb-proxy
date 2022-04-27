@@ -107,7 +107,8 @@ end
 # TODO: replace node["redborder"]["services"] in action with "proxy_services".. 
 freeradius_config "Configure radiusd" do
     flow_nodes node["redborder"]["sensors_info_all"]["flow-sensor"]
-    action (node["redborder"]["services"]["radiusd"] ? [:add] : [:remove])
+    mode "proxy"
+    action (node["redborder"]["services"]["radiusd"] ? [:config_common] : [:remove])
 end
 
 # TODO: replace node["redborder"]["services"] in action with "proxy_services".. 
