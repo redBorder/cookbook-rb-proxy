@@ -9,4 +9,4 @@
 
 include_recipe 'rb-proxy::prepare_system'
 include_recipe 'rb-proxy::configure'
-
+include_recipe 'rb-ips::configure_cron_tasks'
