@@ -6,6 +6,7 @@
 #
 # AFFERO GENERAL PUBLIC LICENSE V3
 #
+include_recipe "ohai::default"
 
 # Services configuration
 
