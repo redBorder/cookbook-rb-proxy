@@ -69,7 +69,6 @@ logstash_config "Configure logstash" do
     namespaces node["redborder"]["namespaces"]
     vault_nodes node["redborder"]["sensors_info_all"]["vault-sensor"]
     device_nodes node["redborder"]["sensors_info_all"]["device-sensor"]
-    mode "proxy"
     action (proxy_services["logstash"] ? [:add] : [:remove])
 end
 
