@@ -6,6 +6,7 @@
 #
 # AFFERO GENERAL PUBLIC LICENSE V3
 #
+include_recipe "ohai::default"
 
 # Services configuration
 
@@ -67,7 +68,7 @@ logstash_config "Configure logstash" do
     flow_nodes node["redborder"]["sensors_info_all"]["flow-sensor"]
     namespaces node["redborder"]["namespaces"]
     vault_nodes node["redborder"]["sensors_info_all"]["vault-sensor"]
-    scanner_nodes node["redborder"]["sensors_info_all"]["scanner-sensor"]
+    device_nodes node["redborder"]["sensors_info_all"]["device-sensor"]
     action (proxy_services["logstash"] ? [:add] : [:remove])
 end
 
