@@ -45,5 +45,7 @@ esac
 %doc
 
 %changelog
+* Wed Feb 2 2022 Luis Blanco <ljblanco@redborder.com> - 0.0.8
+- Freeradius integration
 * Tue Mar 22 2022 Miguel Negron <manegron@redborder.com> - 0.0.1
 - Initial release of proxy
