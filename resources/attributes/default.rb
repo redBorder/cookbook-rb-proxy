@@ -1,6 +1,7 @@
 #Default attributes
 
 #general
+default["redborder"]["machine_type"] = "proxy"
 default["redborder"]["cdomain"] = "redborder.cluster"
 default["redborder"]["organization_uuid"] = nil
 default["redborder"]["organizations"] = []
