@@ -54,14 +54,14 @@ default["redborder"]["services"]["redborder-scanner"]         = true
 default["redborder"]["services"]["snmp"]                      = true
 default["redborder"]["services"]["ntp"]                       = true
 default["redborder"]["services"]["f2k"]                       = true
-default["redborder"]["services"]["logstash"]                  = false
+default["redborder"]["services"]["logstash"]                  = true
 default["redborder"]["services"]["pmacct"]                    = true
 default["redborder"]["services"]["rsyslog"]                   = true
 default["redborder"]["services"]["redborder-social"]          = true
 default["redborder"]["services"]["redborder-nmsp"]            = true
 default["redborder"]["services"]["redborder-ale"]             = true
 default["redborder"]["services"]["n2klocd"]                   = true
-default["redborder"]["services"]["radiusd"]                   = false
+default["redborder"]["services"]["radiusd"]                   = true
 default["redborder"]["services"]["k2http"]                    = true
 
 default["redborder"]["systemdservices"]["chef-client"]            = ["chef-client"]
