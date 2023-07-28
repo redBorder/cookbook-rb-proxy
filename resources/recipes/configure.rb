@@ -39,6 +39,10 @@ end
   
 rbmonitor_config "Configure redborder-monitor" do
     name node["hostname"]
+    rbname node["rbname"]
+    hostip node["ipaddress"]
+    device_nodes node["redborder"]["sensors_info_all"]["device-sensor"]
+    flow_nodes node["redborder"]["sensors_info_all"]["flow-sensor"]
     action (proxy_services["redborder-monitor"] ? :add : :remove)
 end
 
