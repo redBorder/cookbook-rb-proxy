@@ -46,10 +46,6 @@ rbscanner_config "Configure redborder-scanner" do
     scanner_nodes node["redborder"]["sensors_info_all"]["scanner-sensor"]
     action (proxy_services["redborder-scanner"] ? [:add] : [:remove])
 end
-
-ntp_config "Configure NTP" do
-    action (proxy_services["ntp"] ? :add : :remove)
-end
   
 f2k_config "Configure f2k" do
     sensors node["redborder"]["sensors_info"]["flow-sensor"]
