@@ -46,10 +46,6 @@ rbscanner_config "Configure redborder-scanner" do
     scanner_nodes node["redborder"]["sensors_info_all"]["scanner-sensor"]
     action (proxy_services["redborder-scanner"] ? [:add] : [:remove])
 end
-
-ntp_config "Configure NTP" do
-    action (proxy_services["ntp"] ? :add : :remove)
-end
   
 f2k_config "Configure f2k" do
     sensors node["redborder"]["sensors_info"]["flow-sensor"]
@@ -68,13 +64,6 @@ logstash_config "Configure logstash" do
     vault_nodes node["redborder"]["sensors_info_all"]["vault-sensor"]
     device_nodes node["redborder"]["sensors_info_all"]["device-sensor"]
     action (proxy_services["logstash"] ? [:add] : [:remove])
-end
-
-rbsocial_config "Configure redborder-social" do
-    social_nodes node["redborder"]["sensors_info_all"]["social-sensor"]
-    memory node["redborder"]["memory_services"]["redborder-social"]["memory"]
-    zk_hosts node["redborder"]["zookeeper"]["zk_hosts"]
-    action (proxy_services["redborder-social"] ? [:add] : [:remove])
 end
 
 rsyslog_config "Configure rsyslog" do

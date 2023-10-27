@@ -38,7 +38,6 @@ default["redborder"]["memory_services"]["chef-server"] = {"count" => 10, "memory
 default["redborder"]["memory_services"]["snmp"] = {"count" => 5, "memory" => 0, "max_limit" => 10000 }
 default["redborder"]["memory_services"]["redborder-monitor"] = {"count" => 5, "memory" => 0, "max_limit" => 20000 }
 default["redborder"]["memory_services"]["f2k"] = { "count" => 40, "memory" => 0 }
-default["redborder"]["memory_services"]["redborder-social"] = {"count" => 10, "memory" => 0 }
 default["redborder"]["memory_services"]["redborder-nmsp"] = {"count" => 10, "memory" => 0 }
 default["redborder"]["memory_services"]["n2klocd"] = {"count" => 10, "memory" => 0 }
 default["redborder"]["memory_services"]["k2http"] = {"count" => 10, "memory" => 0 }
@@ -52,12 +51,10 @@ default["redborder"]["services"]["geoip"]                     = true
 default["redborder"]["services"]["redborder-monitor"]         = true
 default["redborder"]["services"]["redborder-scanner"]         = true
 default["redborder"]["services"]["snmp"]                      = true
-default["redborder"]["services"]["ntp"]                       = true
 default["redborder"]["services"]["f2k"]                       = true
 default["redborder"]["services"]["logstash"]                  = true
 default["redborder"]["services"]["pmacct"]                    = true
 default["redborder"]["services"]["rsyslog"]                   = true
-default["redborder"]["services"]["redborder-social"]          = false
 default["redborder"]["services"]["redborder-nmsp"]            = true
 default["redborder"]["services"]["redborder-ale"]             = true
 default["redborder"]["services"]["n2klocd"]                   = true
@@ -71,12 +68,10 @@ default["redborder"]["systemdservices"]["geoip"]                  = ["geoip"]
 default["redborder"]["systemdservices"]["redborder-monitor"]      = ["redborder-monitor"]
 default["redborder"]["systemdservices"]["redborder-scanner"]      = ["redborder-scanner"]
 default["redborder"]["systemdservices"]["snmp"]                   = ["snmpd"]
-default["redborder"]["systemdservices"]["ntp"]                    = ["ntpd"]
 default["redborder"]["systemdservices"]["f2k"]                    = ["f2k"]
 default["redborder"]["systemdservices"]["logstash"]               = ["logstash"]
 default["redborder"]["systemdservices"]["pmacct"]                 = ["sfacctd"]
 default["redborder"]["systemdservices"]["rsyslog"]                = ["rsyslog"]
-default["redborder"]["systemdservices"]["redborder-social"]       = ["redborder-social"]
 default["redborder"]["systemdservices"]["redborder-nmsp"]         = ["redborder-nmsp"]
 default["redborder"]["systemdservices"]["redborder-ale"]          = ["redborder-ale"]
 default["redborder"]["systemdservices"]["n2klocd"]                = ["n2klocd"]
