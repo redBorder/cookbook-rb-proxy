@@ -93,12 +93,12 @@ rbale_config "Configure redborder-ale" do
     action (node["redborder"]["services"]["redborder-ale"] ? [:add] : [:remove])
 end
   
-# TODO: replace node["redborder"]["services"] in action with "proxy_services".. 
-freeradius_config "Configure radiusd" do
-    flow_nodes node["redborder"]["sensors_info_all"]["flow-sensor"]
-    mode "proxy"
-    action (node["redborder"]["services"]["radiusd"] ? [:config_common] : [:remove])
-end
+## TODO: replace node["redborder"]["services"] in action with "proxy_services".. 
+#freeradius_config "Configure radiusd" do
+#    flow_nodes node["redborder"]["sensors_info_all"]["flow-sensor"]
+#    mode "proxy"
+#    action (node["redborder"]["services"]["radiusd"] ? [:config_common] : [:remove])
+#end
 
 # TODO: replace node["redborder"]["services"] in action with "proxy_services".. 
 k2http_config "Configure k2http" do
