@@ -120,5 +120,21 @@ k2http_config "Configure k2http" do
     action (proxy_services["k2http"] ? [:add] : [:remove])
 end
 
+#--------------------------SUDOERS--------------------------#
 
+template "/etc/sudoers.d/redborder-proxy" do
+    source "redborder-proxy.erb"
+    owner "root"
+    group "root"
+    mode 0440
+    retries 2
+  end
 
+  cookbook_file "/etc/dnsperf.input" do
+    source "dnsperf.input"
+    owner "root"
+    group "root"
+    mode "0644"
+    cookbook "rb-proxy"
+    action :create_if_missing
+  end

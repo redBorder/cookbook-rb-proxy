@@ -1,0 +1,2 @@
+Defaults:rb-monitor !requiretty, !syslog
+redborder-monitor  ALL= NOPASSWD: /bin/nice -n 19 /usr/sbin/fping -p 1 -c 10 *, /bin/nice -n 19 /usr/bin/dnsperf -d /etc/dnsperf.input -s *
