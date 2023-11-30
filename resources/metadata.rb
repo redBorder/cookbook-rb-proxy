@@ -6,6 +6,7 @@ description      'Installs/Configures redborder proxy'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.0.10'
 
+depends 'rb-selinux'
 depends 'zookeeper'
 depends 'kafka'
 depends 'geoip'
