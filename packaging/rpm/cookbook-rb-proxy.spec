@@ -45,7 +45,9 @@ esac
 %doc
 
 %changelog
-* Wed Feb 1 2023 Luis Blanco <ljblanco@redborder.com> - 0.0.8
+* Fri Dec 01 2023 David Vanhoucke <dvanhoucke@redborder.com> - 0.1.0
+- Add selinux
+* Wed Feb 01 2023 Luis Blanco <ljblanco@redborder.com> - 0.0.8
 - Freeradius integration
 * Tue Mar 22 2022 Miguel Negron <manegron@redborder.com> - 0.0.1
 - Initial release of proxy
