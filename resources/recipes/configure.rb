@@ -11,6 +11,14 @@
 # proxy services
 proxy_services = proxy_services()
 
+rb_selinux_config "Configure Selinux" do
+  if shell_out("getenforce").stdout.chomp == "Disabled"
+    action :remove
+  else
+    action :add
+  end
+end
+
 zookeeper_config "Configure Zookeeper" do
     port node["zookeeper"]["port"]
     memory node["redborder"]["memory_services"]["zookeeper"]["memory"]
