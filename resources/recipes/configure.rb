@@ -100,6 +100,10 @@ rbale_config "Configure redborder-ale" do
     ale_nodes node["redborder"]["sensors_info_all"]["ale-sensor"]
     action (node["redborder"]["services"]["redborder-ale"] ? [:add] : [:remove])
 end
+
+rbcgroup_config "Configure cgroups" do
+  action :add 
+end
   
 ## TODO: replace node["redborder"]["services"] in action with "proxy_services".. 
 #freeradius_config "Configure radiusd" do
