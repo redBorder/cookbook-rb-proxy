@@ -45,6 +45,8 @@ esac
 %doc
 
 %changelog
+* Thu Jan 18 2024 Miguel Negrón <manegron@redborder.com> - 0.1.2-1
+- Add journalctld configuration
 * Thu Dec 14 2023 Miguel Álvarez <malvarez@redborder.com> - 0.1.1
 - Add cgroups
 * Fri Dec 01 2023 David Vanhoucke <dvanhoucke@redborder.com> - 0.1.0
