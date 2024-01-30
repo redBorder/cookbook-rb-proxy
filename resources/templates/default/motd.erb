@@ -1,0 +1,37 @@
+
+<% if File.exist?"/etc/firstboot.flag" %>
+  Welcome to redborder-ng Proxy to Cloud (<%= node["hostname"] %>):
+  Kernel: <%= node['os_version'].gsub("el9", "") %>
+
+  UUID:         <%= `cat /etc/rb-uuid`.chomp %>
+  Version:      <%= `rpm -qa | grep redborder-proxy- | sed 's/redborder-proxy-//' | sed 's/\.x86_64//' | sed 's/\.el[0-9]\+.rb.noarch//'`.chomp %>
+  CPUs:         <%= node["cpu"]["total"] unless node["cpu"].nil? %>
+  Memory:       <%= "%.2f GB" % [ node["memory"]["total"].to_f/(1000*1000) ] unless node["memory"].nil? %>
+  IP address:   <%= node['ipaddress'] %>
+  MAC:          <%= node['macaddress'].nil? ? "" : node['macaddress'] %>
+<% else %>
+  Welcome to redborder-ng Proxy [<%= node["hostname"] %>] (<%= node['platform'] %> - <%= node['platform_version'] %>):
+  Kernel: <%= node['os_version'].gsub("el9", "") %>
+
+  <% if !node["redborder"].nil? and !node["redborder"]["rpms"].nil? %>
+  <% node["redborder"]["rpms"].each do |k, v| %>
+      * <%= "redborder-%-12s" % [ k ] %> => <%= v %>
+  <% end %>
+  <% end %>
+
+  Manager IP:   <%= @manager.chomp %>
+  Domain:       <%= @manager_info %>
+  CPUs:         <%= node["cpu"]["total"] unless node["cpu"].nil? %>
+  Memory:       <%= "%.2f GB" % [ node["memory"]["total"].to_f/(1000*1000) ] unless node["memory"].nil? %>
+  Host:         <%= node['ipaddress'] %> (<%= node['macaddress'].nil? ? "" : node['macaddress'] %>)
+  Last check:   <%= Time.at(node[:ohai_time]).strftime('%a %b %e %H:%M:%S %Z %Y') %>
+  UUID:         <%= `cat /etc/rb-uuid`.chomp %>
+<% end %>
+
+  Collector Addresses:
+    * Netflow     <%= node['ipaddress'] %>:2055
+    * sFlow       <%= node['ipaddress'] %>:6343
+    * MSE 10      <%= node['ipaddress'] %>:2056
+    * MSE 8       <%= node['ipaddress'] %>:2057
+    * AAA Records <%= node['ipaddress'] %>:1813
+    * Vault       <%= node['ipaddress'] %>:514
