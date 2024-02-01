@@ -24,6 +24,7 @@
   CPUs:         <%= node["cpu"]["total"] unless node["cpu"].nil? %>
   Memory:       <%= "%.2f GB" % [ node["memory"]["total"].to_f/(1000*1000) ] unless node["memory"].nil? %>
   Host:         <%= node['ipaddress'] %> (<%= node['macaddress'].nil? ? "" : node['macaddress'] %>)
+  Installed on: <%= node["redborder"]["install_date"] if node["redborder"] %>
   Last check:   <%= Time.at(node[:ohai_time]).strftime('%a %b %e %H:%M:%S %Z %Y') %>
   UUID:         <%= `cat /etc/rb-uuid`.chomp %>
 <% end %>
