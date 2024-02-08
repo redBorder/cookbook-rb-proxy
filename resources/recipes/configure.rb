@@ -105,6 +105,20 @@ rbcgroup_config "Configure cgroups" do
   action :add 
 end
   
+
+#--------------------------MOTD--------------------------#
+
+manager =`grep "cloud_address" /etc/redborder/rb_init_conf.yml | cut -d' ' -f2`
+
+template "/etc/motd" do
+    source "motd.erb"
+    owner "root"
+    group "root"
+    mode 0644
+    retries 2
+    variables(:manager_info => node["redborder"]["cdomain"], :manager => manager)
+end
+
 ## TODO: replace node["redborder"]["services"] in action with "proxy_services".. 
 #freeradius_config "Configure radiusd" do
 #    flow_nodes node["redborder"]["sensors_info_all"]["flow-sensor"]
