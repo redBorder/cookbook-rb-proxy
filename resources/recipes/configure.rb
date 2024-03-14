@@ -101,11 +101,14 @@ rbale_config "Configure redborder-ale" do
     action (node["redborder"]["services"]["redborder-ale"] ? [:add] : [:remove])
 end
 
+k2http_config "Configure k2http" do
+    action (proxy_services["k2http"] ? [:add] : [:remove])
+end
+
 rbcgroup_config "Configure cgroups" do
   action :add 
 end
   
-
 #--------------------------MOTD--------------------------#
 
 manager =`grep "cloud_address" /etc/redborder/rb_init_conf.yml | cut -d' ' -f2`
@@ -124,11 +127,6 @@ end
 #    flow_nodes node["redborder"]["sensors_info_all"]["flow-sensor"]
 #    mode "proxy"
 #    action (node["redborder"]["services"]["radiusd"] ? [:config_common] : [:remove])
-#end
-
-## TODO: replace node["redborder"]["services"] in action with "proxy_services".. 
-#k2http_config "Configure k2http" do
-#    action (proxy_services["k2http"] ? [:add] : [:remove])
 #end
 
 
