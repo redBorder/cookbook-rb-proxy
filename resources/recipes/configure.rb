@@ -95,6 +95,10 @@ n2klocd_config "Configure n2klocd" do
     action (proxy_services["n2klocd"] ? [:add] : [:remove])
 end
 
+rb_exporter_config "Configure rb-exporter" do
+    action (proxy_services["redborder-exporter"] ? [:add] : [:remove])
+end
+
 # TODO: replace node["redborder"]["services"] in action with "proxy_services".. 
 rbale_config "Configure redborder-ale" do
     ale_nodes node["redborder"]["sensors_info_all"]["ale-sensor"]

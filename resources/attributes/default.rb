@@ -60,6 +60,7 @@ default["redborder"]["services"]["redborder-ale"]             = true
 default["redborder"]["services"]["n2klocd"]                   = true
 default["redborder"]["services"]["radiusd"]                   = true
 default["redborder"]["services"]["k2http"]                    = true
+default["redborder"]["services"]["redborder-exporter"]        = true
 
 default["redborder"]["systemdservices"]["chef-client"]            = ["chef-client"]
 default["redborder"]["systemdservices"]["kafka"]                  = ["kafka"]
@@ -77,4 +78,5 @@ default["redborder"]["systemdservices"]["redborder-ale"]          = ["redborder-
 default["redborder"]["systemdservices"]["n2klocd"]                = ["n2klocd"]
 default["redborder"]["systemdservices"]["radiusd"]                = ["radiusd"]
 default["redborder"]["systemdservices"]["k2http"]                 = ["k2http"]
+default["redborder"]["systemdservices"]["redborder-exporter"]     = ["redborder-exporter"]
 
