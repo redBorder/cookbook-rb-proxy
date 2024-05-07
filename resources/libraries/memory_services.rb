@@ -50,4 +50,3 @@ module Rb_proxy
         end
     end
 end
-  
