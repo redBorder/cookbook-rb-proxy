@@ -42,9 +42,9 @@ default["redborder"]["memory_services"]["f2k"] = { "count" => 40, "memory" => 0 
 default["redborder"]["memory_services"]["redborder-nmsp"] = {"count" => 10, "memory" => 0 }
 default["redborder"]["memory_services"]["n2klocd"] = {"count" => 10, "memory" => 0 }
 default["redborder"]["memory_services"]["k2http"] = {"count" => 10, "memory" => 0 }
-# excluded mem services
-# default['redborder']['excluded_memservices'] = Set.new(['chef-client']) TODO: refactor to this
-default['redborder']['excluded_memory_services'] = ['chef-client'] # Don't assign memory to chef because the service will get handled
+
+# exclude mem services, setting memory to 0 for each.
+default['redborder']['excluded_memory_services'] = ['chef-client']
 
 default["redborder"]["services"] = {}
 default["redborder"]["services"]["chef-client"]               = true
