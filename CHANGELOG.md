@@ -1,6 +1,15 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 0.1.6
+
+  - Miguel Álvarez
+    - [fe69f8f] Update memory_services.rb
+    - [86466b0] Update prepare_system.rb
+    - [47c06c8] Clean comments
+    - [48fe519] Update prepare_system.rb
+    - [8d08754] Update default.rb
+
 ## 0.1.5
 
   - David Vanhoucke
