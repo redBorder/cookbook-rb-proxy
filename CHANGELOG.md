@@ -9,13 +9,6 @@ cookbook-rb-proxy CHANGELOG
     - [47c06c8] Clean comments
     - [48fe519] Update prepare_system.rb
     - [8d08754] Update default.rb
-  - Luis Blanco
-    - [64690cd] normalization
-    - [6926d41] Revert "must provide excluded mem services"
-    - [dfca0e6] lint
-    - [021900e] must provide excluded mem services
-    - [78b2ed7] excluded mem services is a new attribute of data structure set
-    - [1f12995] exclude chef-client from memservice
 
 ## 0.1.5
 
