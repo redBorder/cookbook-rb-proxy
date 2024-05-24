@@ -11,6 +11,10 @@
 # proxy services
 proxy_services = proxy_services()
 
+rb_common_config "Configure common" do
+  action :configure
+end
+
 rb_selinux_config "Configure Selinux" do
   if shell_out("getenforce").stdout.chomp == "Disabled"
     action :remove
