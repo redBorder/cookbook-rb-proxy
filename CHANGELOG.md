@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 0.2.0
+
+  - Miguel Negrón
+    - [1b3f547] Add configure common cookbook call (#23)
+
 ## 0.1.6
 
   - Miguel Álvarez
