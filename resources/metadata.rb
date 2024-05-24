@@ -4,7 +4,7 @@ maintainer_email 'manegron@redborder.com'
 license          'All rights reserved'
 description      'Installs/Configures redborder proxy'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.1.6'
+version          '0.2.0'
 
 depends 'rb-common'
 depends 'rb-selinux'
