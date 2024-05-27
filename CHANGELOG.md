@@ -1,6 +1,16 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 0.2.1
+
+  - Miguel Negrón
+    - [a72760b] Update metadata.rb
+    - [428c7d0] Merge pull request #26 from redBorder/bugfix/missing_specific_dist_kernel_info_in_motd
+  - Miguel Negron
+    - [76d035a] Add full kernel release info in motd
+  - David Vanhoucke
+    - [6484209] change rb-exporter service name
+
 ## 0.2.0
 
   - Miguel Negrón
