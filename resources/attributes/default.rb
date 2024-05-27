@@ -82,5 +82,5 @@ default["redborder"]["systemdservices"]["redborder-ale"]          = ["redborder-
 default["redborder"]["systemdservices"]["n2klocd"]                = ["n2klocd"]
 default["redborder"]["systemdservices"]["radiusd"]                = ["radiusd"]
 default["redborder"]["systemdservices"]["k2http"]                 = ["k2http"]
-default["redborder"]["systemdservices"]["redborder-exporter"]     = ["redborder-exporter"]
+default["redborder"]["systemdservices"]["redborder-exporter"]     = ["rb-exporter"]
 
