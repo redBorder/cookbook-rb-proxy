@@ -1,6 +1,14 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 0.2.2
+
+  - David Vanhoucke
+    - [28ae7e2] add temporary variables in node.run_state
+  - Miguel Negrón
+    - [3e930e8] Update README.md
+    - [c7e880b] Update rpm.yml
+
 ## 0.2.1
 
   - Miguel Negrón
