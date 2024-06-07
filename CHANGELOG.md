@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 0.2.3
+
+  - Luis Blanco
+    - [e02fe7a] remove from the service list. Not remove, always add in configuration
+
 ## 0.2.2
 
   - David Vanhoucke
