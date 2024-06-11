@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 0.2.4
+
+  - Miguel Negrón
+    - [91f880b] Improvement/fix lint (#32)
+
 ## 0.2.3
 
   - Luis Blanco
