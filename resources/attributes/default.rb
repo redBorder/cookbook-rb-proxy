@@ -54,7 +54,7 @@ default['redborder']['services']['rsyslog'] = true
 default['redborder']['services']['redborder-nmsp'] = true
 default['redborder']['services']['redborder-ale'] = true
 default['redborder']['services']['n2klocd'] = true
-default['redborder']['services']['radiusd'] = true
+default['redborder']['services']['radiusd'] = false
 default['redborder']['services']['k2http'] = true
 default['redborder']['services']['redborder-exporter'] = true
 
