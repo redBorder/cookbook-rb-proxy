@@ -169,6 +169,10 @@ rbcgroup_config 'Configure cgroups' do
   action :add
 end
 
+rb_clamav_config 'Configure ClamAV' do
+  action(proxy_services['clamav'] ? :add : :remove)
+end
+
 # MOTD
 manager = `grep 'cloud_address' /etc/redborder/rb_init_conf.yml | cut -d' ' -f2`
 

@@ -57,6 +57,7 @@ default['redborder']['services']['n2klocd'] = true
 default['redborder']['services']['radiusd'] = false
 default['redborder']['services']['k2http'] = true
 default['redborder']['services']['redborder-exporter'] = true
+default['redborder']['services']['clamav'] = true
 
 default['redborder']['systemdservices']['chef-client'] = ['chef-client']
 default['redborder']['systemdservices']['kafka'] = ['kafka']
