@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 0.2.5
+
+  - nilsver
+    - [bbb37f7] disable freeradius
+
 ## 0.2.4
 
   - Miguel Negrón
