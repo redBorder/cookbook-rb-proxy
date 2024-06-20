@@ -100,13 +100,11 @@ logstash_config 'Configure logstash' do
   vault_nodes node.run_state['sensors_info_all']['vault-sensor']
   device_nodes node.run_state['sensors_info_all']['device-sensor']
   logstash_pipelines node.default['pipelines']
-  logstash_pipelines node.default['pipelines']
   if !logstash_pipelines.nil? && !logstash_pipelines.empty?
     action [:add]
   else
     action [:remove]
   end
-
 end
 
 rsyslog_config 'Configure rsyslog' do
