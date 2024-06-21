@@ -99,7 +99,8 @@ logstash_config 'Configure logstash' do
   namespaces node.run_state['namespaces']
   vault_nodes node.run_state['sensors_info_all']['vault-sensor']
   device_nodes node.run_state['sensors_info_all']['device-sensor']
-  if proxy_services['logstash']
+  logstash_pipelines node.default['pipelines']
+  if !logstash_pipelines.nil? && !logstash_pipelines.empty?
     action [:add]
   else
     action [:remove]
