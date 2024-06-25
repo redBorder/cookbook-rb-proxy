@@ -5,8 +5,7 @@ cookbook-rb-proxy CHANGELOG
 
   - nilsver
     - [e1272bb] add check for monitor configuration pipelines
-    - [6185bfa] fix logstash not running when pipelines empty
-    - [08f57da] fix logstash not running when pipelines empty
+    - [6185bfa], [08f57da] fix logstash not running when pipelines empty
     - [ec5d379] update configure.rb
     - [c35b312] logstash should not be running when there are no pipelines
   - Miguel Alvarez
