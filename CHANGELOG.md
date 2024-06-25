@@ -10,7 +10,6 @@ cookbook-rb-proxy CHANGELOG
     - [ec5d379] update configure.rb
     - [c35b312] logstash should not be running when there are no pipelines
   - Miguel Alvarez
-    - [86e6e36] Add memcached hosts to the webui
     - [2be5b59] Fix configure clamscan
     - [2e0b86b] Add clamav
 
