@@ -55,6 +55,9 @@ node.run_state['sensors_info_all'] = get_sensors_all_info()
 # get namespaces
 node.run_state['namespaces'] = get_namespaces
 
+# get logstash pipelines
+node.default['pipelines'] = get_pipelines()
+
 # get string with all zookeeper hosts and port separated by commas, its needed for multiples services
 # zk_port = node['redborder']['zookeeper']['port']
 # zk_hosts = ['localhost'].map {|z| '#{z}.node:#{zk_port}'}.join(',')
