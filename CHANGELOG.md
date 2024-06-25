@@ -1,4 +1,4 @@
-![image](https://github.com/redBorder/cookbook-rb-proxy/assets/127120525/dff7729a-a159-4126-b3fd-776af31cbf0a)cookbook-rb-proxy CHANGELOG
+cookbook-rb-proxy CHANGELOG
 ===============
 
 ## 0.3.0
@@ -11,7 +11,6 @@
     - [c35b312] logstash should not be running when there are no pipelines
   - Miguel Alvarez
     - [86e6e36] Add memcached hosts to the webui
-    - [c5d590d] Fix lint issues
     - [2be5b59] Fix configure clamscan
     - [2e0b86b] Add clamav
 
