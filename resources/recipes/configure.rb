@@ -174,6 +174,15 @@ rb_clamav_config 'Configure ClamAV' do
   action(proxy_services['clamav'] ? :add : :remove)
 end
 
+rb_chrony_config 'Configure Chrony' do
+  ntp_servers node['redborder']['ntp']['servers']
+  if proxy_services['chrony']
+    action :add
+  else
+    action :remove
+  end
+end
+
 # MOTD
 manager = `grep 'cloud_address' /etc/redborder/rb_init_conf.yml | cut -d' ' -f2`
 
