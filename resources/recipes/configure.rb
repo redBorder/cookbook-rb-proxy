@@ -175,7 +175,6 @@ rb_clamav_config 'Configure ClamAV' do
 end
 
 rb_chrony_config 'Configure Chrony' do
-  ntp_servers node['redborder']['ntp']['servers']
   if proxy_services['chrony']
     action :add
   else
