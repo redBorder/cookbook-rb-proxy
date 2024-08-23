@@ -57,7 +57,7 @@ module RbProxy
       # Prepare the lines for the hosts file
       hosts_entries = []
       hosts_hash.each do |ip, services|
-        format_entry = sprintf("%-18s%s", ip, services.join(' '))
+        format_entry = format('%-18s%s', ip, services.join(' '))
         hosts_entries << format_entry unless services.empty?
       end
 
