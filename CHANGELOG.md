@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 0.4.0
+
+  - Miguel Alvarez
+    - [56ef242] Add chronyd cookbook
+
 ## 0.3.0
 
   - nilsver
