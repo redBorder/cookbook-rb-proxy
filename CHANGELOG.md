@@ -1,6 +1,15 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 0.5.0
+
+  - nilsver
+    - [cc8b9a6] update format
+    - [d7bf449] update hosts file
+  - Luis Blanco
+    - [cb38a36] disable service ale by default
+    - [bbaff20] action based on if there is any ale sensor
+
 ## 0.4.0
 
   - Miguel Alvarez
