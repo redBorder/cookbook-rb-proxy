@@ -1,6 +1,12 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 0.4.1
+
+  - Luis Blanco
+    - [cb38a36] disable service ale by default
+    - [bbaff20] action based on if there is any ale sensor
+
 ## 0.4.0
 
   - Miguel Alvarez
