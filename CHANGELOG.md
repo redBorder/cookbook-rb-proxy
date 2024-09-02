@@ -1,7 +1,7 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
-## 0.4.1
+## 0.5.0
 
   - nilsver
     - [cc8b9a6] update format
