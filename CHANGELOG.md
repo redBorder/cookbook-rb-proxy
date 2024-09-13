@@ -1,6 +1,12 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 0.5.1
+
+  - Daniel Castro
+    - [8645664] get rid of unnecesary attributes
+    - [c3c2fd3] send node info to redborder-monitor
+
 ## 0.5.0
 
   - nilsver
