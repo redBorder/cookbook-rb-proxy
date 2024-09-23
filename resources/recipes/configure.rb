@@ -14,7 +14,6 @@ rescue
   split_traffic_logstash = false
 end
 
-
 rb_common_config 'Configure common' do
   action :configure
 end
