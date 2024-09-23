@@ -7,6 +7,14 @@
 
 proxy_services = proxy_services()
 
+begin
+  split_traffic_logstash_db = data_bag_item('rBglobal', 'splittraffic')
+  split_traffic_logstash = split_traffic_logstash_db['active']
+rescue
+  split_traffic_logstash = false
+end
+
+
 rb_common_config 'Configure common' do
   action :configure
 end
@@ -144,6 +152,7 @@ end
 
 rb_exporter_config 'Configure rb-exporter' do
   if proxy_services['redborder-exporter']
+    split_traffic_logstash split_traffic_logstash
     action [:add]
   else
     action [:remove]
