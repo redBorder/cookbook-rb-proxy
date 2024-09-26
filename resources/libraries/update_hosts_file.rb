@@ -1,31 +1,16 @@
 module RbProxy
   module Helpers
-    def update_hosts_file
-      managers = get_managers_all()
-      manager_ip = []
-      managers.each do |m|
-        manager_ip << m['ipaddress_sync']
-      end
+    def get_setup_ip
+      rb_init_conf = YAML.load_file('/etc/redborder/rb_init_conf.yml')
+      setup_ip = rb_init_conf['cloud_address']
+      setup_ip
+    end
 
-      # grouped_virtual_ips returns a hash where:
-      # - The keys are IP addresses from the data bags, or `nil` if an IP is missing.
-      # - The values are arrays of services associated with each IP address.
-      # - If an IP is missing from a data bag, the associated services are grouped under the sync_ip key.
-      grouped_virtual_ips = Hash.new { |hash, key| hash[key] = [] }
-      databags = Chef::DataBag.load('rBglobal').keys
-      databags.each do |bag|
-        next unless bag.start_with?('ipvirtual-external')
-        virtual_dg = data_bag_item('rBglobal', bag)
-        ip = virtual_dg['ip']
+    def get_external_databag_services
+      Chef::DataBag.load('rBglobal').keys.grep(/^ipvirtual-external-/).map { |bag| bag.sub('ipvirtual-external-', '') }
+    end
 
-        if ip && !ip.empty?
-          grouped_virtual_ips[ip] << bag.gsub('ipvirtual-external-', '')
-        else
-          grouped_virtual_ips[manager_ip[0]] << bag.gsub('ipvirtual-external-', '')
-        end
-      end
-
-      # Read hosts file and store in hash
+    def read_hosts_file
       hosts_hash = Hash.new { |hash, key| hash[key] = [] }
       File.readlines('/etc/hosts').each do |line|
         next if line.strip.empty? || line.start_with?('#')
@@ -34,23 +19,34 @@ module RbProxy
         services = values
         hosts_hash[ip].concat(services).uniq!
       end
+      hosts_hash
+    end
 
-      # Update hosts_hash based on grouped_virtual_ips
+    def update_hosts_file
+      setup_ip = get_setup_ip
+      running_services = node['redborder']['systemdservices'].values.flatten if node['redborder']['systemdservices']
+      databags = get_external_databag_services
+      hosts_hash = read_hosts_file
+
+      # Hash where services (from databag) are grouped by ip
+      grouped_virtual_ips = Hash.new { |hash, key| hash[key] = [] }
+      databags.each { |bag_serv| grouped_virtual_ips[setup_ip] << "#{bag_serv}" }
+      running_services.each { |serv| grouped_virtual_ips['127.0.0.1'] << "#{serv}" }
+
+      # Group services
       grouped_virtual_ips.each do |new_ip, new_services|
         new_services.each do |new_service|
+          # Remove suffix and get services
           service_key = new_service.split('.').first
+          hosts_hash.each { |_ip, services| services.delete_if { |service| service.split('.').first == service_key } }
 
-          hosts_hash.each do |_ip, services|
-            services.delete_if { |service| service.split('.').first == service_key }
+          # Add running services to localhost
+          if running_services.include?(new_service)
+            hosts_hash['127.0.0.1'] << "#{new_service}.service"
+            next
           end
-
-          if new_ip
-            hosts_hash[new_ip] << "#{new_service}.service"
-            hosts_hash[new_ip] << "#{new_service}.#{node['redborder']['cdomain']}"
-          else
-            hosts_hash[manager_ip[0]] << "#{new_service}.service"
-            hosts_hash[manager_ip[0]] << "#{new_service}.#{node['redborder']['cdomain']}"
-          end
+          hosts_hash[setup_ip] << "#{new_service}.service"
+          hosts_hash[setup_ip] << "#{new_service}.#{node['redborder']['cdomain']}"
         end
       end
 
@@ -60,7 +56,6 @@ module RbProxy
         format_entry = format('%-18s%s', ip, services.join(' '))
         hosts_entries << format_entry unless services.empty?
       end
-
       hosts_entries
     end
   end
