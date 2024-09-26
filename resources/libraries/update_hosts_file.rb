@@ -2,8 +2,7 @@ module RbProxy
   module Helpers
     def get_setup_ip
       rb_init_conf = YAML.load_file('/etc/redborder/rb_init_conf.yml')
-      setup_ip = rb_init_conf['cloud_address']
-      setup_ip
+      rb_init_conf['cloud_address']
     end
 
     def get_external_databag_services
@@ -34,7 +33,7 @@ module RbProxy
       running_services.each { |serv| grouped_virtual_ips['127.0.0.1'] << "#{serv}" }
 
       # Group services
-      grouped_virtual_ips.each do |new_ip, new_services|
+      grouped_virtual_ips.each do |_new_ip, new_services|
         new_services.each do |new_service|
           # Remove suffix and get services
           service_key = new_service.split('.').first
