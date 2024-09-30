@@ -1,6 +1,13 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 0.6.0
+
+  - David Vanhoucke
+    - [7dadc5e] use descrfptive name
+    - [964e8d0] remove blank line
+    - [a686df0] add method to activate the split of the traffic through logstash
+
 ## 0.5.1
 
   - Daniel Castro
