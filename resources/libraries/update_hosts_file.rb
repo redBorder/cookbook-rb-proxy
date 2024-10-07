@@ -30,17 +30,20 @@ module RbProxy
       # Hash where services (from databag) are grouped by ip
       grouped_virtual_ips = Hash.new { |hash, key| hash[key] = [] }
       databags.each { |bag_serv| grouped_virtual_ips[setup_ip] << "#{bag_serv}" }
-      running_services.each { |serv| grouped_virtual_ips['127.0.0.1'] << "#{serv}" }
+      running_services.each { |serv| grouped_virtual_ips['127.0.0.1'] << serv }
 
       # Group services
-      grouped_virtual_ips.each do |_new_ip, new_services|
+      grouped_virtual_ips.each do |new_ip, new_services|
         new_services.each do |new_service|
-          # Remove suffix and get services
+          # Avoids having duplicate services in the list
           service_key = new_service.split('.').first
-          hosts_hash.each { |_ip, services| services.delete_if { |service| service.split('.').first == service_key } }
+          hosts_hash.each do |_ip, services|
+            services_before = services.dup
+            services.delete_if { |service| service.split('.').first == service_key }
+          end
 
           # Add running services to localhost
-          if running_services.include?(new_service)
+          if new_ip == '127.0.0.1' && running_services.include?(new_service)
             hosts_hash['127.0.0.1'] << "#{new_service}.service"
             next
           end
