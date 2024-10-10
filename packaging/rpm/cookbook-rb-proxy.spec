@@ -23,6 +23,9 @@ chmod -R 0755 %{buildroot}/var/chef/cookbooks/rb-proxy
 install -D -m 0644 README.md %{buildroot}/var/chef/cookbooks/rb-proxy/README.md
 
 %pre
+if [ -d /var/chef/cookbooks/rb-proxy ]; then
+    rm -rf /var/chef/cookbooks/rb-proxy
+fi
 
 %post
 case "$1" in
@@ -36,6 +39,12 @@ case "$1" in
   ;;
 esac
 
+%postun
+# Deletes directory when uninstall the package
+if [ "$1" = 0 ] && [ -d /var/chef/cookbooks/rb-proxy ]; then
+  rm -rf /var/chef/cookbooks/rb-proxy
+fi
+
 %files
 %defattr(0755,root,root)
 /var/chef/cookbooks/rb-proxy
@@ -45,13 +54,20 @@ esac
 %doc
 
 %changelog
-* Thu Jan 18 2024 Miguel Negrón <manegron@redborder.com> - 0.1.2-1
+* Thu Oct 10 2024 Miguel Negrón <manegron@redborder.com>
+- Add pre and postun
+
+* Thu Jan 18 2024 Miguel Negrón <manegron@redborder.com>
 - Add journalctld configuration
-* Thu Dec 14 2023 Miguel Álvarez <malvarez@redborder.com> - 0.1.1
+
+* Thu Dec 14 2023 Miguel Álvarez <malvarez@redborder.com>
 - Add cgroups
-* Fri Dec 01 2023 David Vanhoucke <dvanhoucke@redborder.com> - 0.1.0
+
+* Fri Dec 01 2023 David Vanhoucke <dvanhoucke@redborder.com>
 - Add selinux
-* Wed Feb 01 2023 Luis Blanco <ljblanco@redborder.com> - 0.0.8
+
+* Wed Feb 01 2023 Luis Blanco <ljblanco@redborder.com>
 - Freeradius integration
-* Tue Mar 22 2022 Miguel Negron <manegron@redborder.com> - 0.0.1
+
+* Tue Mar 22 2022 Miguel Negron <manegron@redborder.com>
 - Initial release of proxy
