@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 1.0.1
+
+  - Miguel Negrón
+    - [7205709] Add pre and postun to clean the cookbook
+
 ## 1.0.0
 
   - Miguel Negrón
@@ -12,7 +17,7 @@ cookbook-rb-proxy CHANGELOG
     - [91f880b] Improvement/fix lint (#32)
     - [6917897] Merge pull request #31 from redBorder/development
     - [569bdd3] Merge pull request #30 from redBorder/bugfix/#15141_remove_geoip_from_service_list
-  - manegron
+  - Miguel Negrón
     - [64e7db8] Merge pull request #47 from redBorder/bugfix/18716_remove_sync_address_from_hosts_file
     - [08d7c8e] Simplify code
     - [2a15362] Merge pull request #43 from redBorder/development
@@ -87,7 +92,7 @@ cookbook-rb-proxy CHANGELOG
     - [e02fe7a] remove from the service list. Not remove, always add in configuration
   - vimesa
     - [8f950d5] Release 0.2.4
-  - Miguel Negron
+  - Miguel Negrón
     - [208cb02] Bump version
 
 ## 0.6.0
