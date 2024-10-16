@@ -26,6 +26,14 @@ rb_selinux_config 'Configure Selinux' do
   end
 end
 
+rb_firewall_config 'Configure Firewall' do
+  if proxy_services['firewall']
+    action :add
+  else
+    action :remove
+  end
+end
+
 zookeeper_config 'Configure Zookeeper' do
   port node['zookeeper']['port']
   memory node['redborder']['memory_services']['zookeeper']['memory']

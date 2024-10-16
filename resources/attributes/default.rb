@@ -59,6 +59,7 @@ default['redborder']['services']['k2http'] = true
 default['redborder']['services']['redborder-exporter'] = true
 default['redborder']['services']['clamav'] = true
 default['redborder']['services']['chrony'] = true
+default['redborder']['services']['firewall'] = true
 
 default['redborder']['systemdservices']['chef-client'] = ['chef-client']
 default['redborder']['systemdservices']['kafka'] = ['kafka']
@@ -77,3 +78,4 @@ default['redborder']['systemdservices']['radiusd'] = ['radiusd']
 default['redborder']['systemdservices']['k2http'] = ['k2http']
 default['redborder']['systemdservices']['redborder-exporter'] = ['rb-exporter']
 default['redborder']['systemdservices']['chrony'] = ['chronyd']
+default['redborder']['systemdservices']['firewall'] = ['firewalld']
