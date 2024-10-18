@@ -211,3 +211,12 @@ end
 #   mode 'proxy'
 #  action (node['redborder']['services']['radiusd'] ? [:config_common] : [:remove])
 # end
+
+template '/etc/sudoers.d/redBorder' do
+  source 'redBorder.erb'
+  cookbook 'rb-proxy'
+  owner 'root'
+  group 'root'
+  mode '0440'
+  retries 2
+end
