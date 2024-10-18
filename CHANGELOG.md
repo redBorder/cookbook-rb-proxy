@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 2.0.0
+
+  - Miguel Negron
+    - [6e7bc6a] Add sudoers config
+
 ## 1.0.1
 
   - Miguel Negrón
