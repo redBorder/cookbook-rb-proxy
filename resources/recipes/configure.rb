@@ -51,6 +51,8 @@ kafka_config 'Configure Kafka' do
 end
 
 geoip_config 'Configure GeoIP' do
+  user_id node['redborder']['geoip_user']
+  license_key node['redborder']['geoip_key']
   action :add
 end
 
