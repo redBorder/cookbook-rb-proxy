@@ -184,7 +184,7 @@ rbcgroup_config 'Configure cgroups' do
 end
 
 rb_clamav_config 'Configure ClamAV' do
-  action(proxy_services['clamav'] ? :add : :remove)
+  action :add
 end
 
 rb_chrony_config 'Configure Chrony' do
