@@ -82,7 +82,7 @@ template '/etc/hosts' do
 end
 
 # Build service list for rbcli
-services = node['redborder']['services'] ||  []
+services = node['redborder']['services'] || []
 systemd_services = node['redborder']['systemdservices'] || []
 service_enablement = {}
 
@@ -90,7 +90,5 @@ systemd_services.each do |service_name, systemd_name|
   service_enablement[systemd_name.first] = services[service_name]
 end
 
-Chef::Log.info("Saving services enablement into /etc/redborder/services.json")
-File.open("/etc/redborder/services.json", "w") do |file|
-  file.write(JSON.pretty_generate(service_enablement))
-end
+Chef::Log.info('Saving services enablement into /etc/redborder/services.json')
+File.write('/etc/redborder/services.json', JSON.pretty_generate(service_enablement))
