@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 2.1.0
+
+  - Miguel Negrón
+    - [fabdc17] Merge pull request #50 from redBorder/bugfix/#18863_license_in_settings
+
 ## 2.0.0
 
   - Miguel Negron
