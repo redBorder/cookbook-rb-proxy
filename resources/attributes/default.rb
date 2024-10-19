@@ -24,16 +24,16 @@ default['redborder']['zookeeper']['port'] = 2181
 
 # memory
 default['redborder']['memory_services'] = {}
-default['redborder']['memory_services']['kafka'] = { 'count': 150, 'memory': 0, 'max_limit': 524288 }
-default['redborder']['memory_services']['zookeeper'] = { 'count': 20, 'memory': 0 }
-default['redborder']['memory_services']['http2k'] = { 'count': 10, 'memory': 0 }
 default['redborder']['memory_services']['chef-server'] = { 'count': 10, 'memory': 0 }
-default['redborder']['memory_services']['snmp'] = { 'count': 5, 'memory': 0, 'max_limit': 10000 }
-default['redborder']['memory_services']['redborder-monitor'] = { 'count': 5, 'memory': 0, 'max_limit': 20000 }
 default['redborder']['memory_services']['f2k'] = { 'count': 40, 'memory': 0 }
-default['redborder']['memory_services']['redborder-nmsp'] = { 'count': 10, 'memory': 0 }
-default['redborder']['memory_services']['n2klocd'] = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['http2k'] = { 'count': 10, 'memory': 0 }
 default['redborder']['memory_services']['k2http'] = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['kafka'] = { 'count': 150, 'memory': 0, 'max_limit': 524288 }
+default['redborder']['memory_services']['n2klocd'] = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['redborder-monitor'] = { 'count': 5, 'memory': 0, 'max_limit': 20000 }
+default['redborder']['memory_services']['redborder-nmsp'] = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['snmp'] = { 'count': 5, 'memory': 0, 'max_limit': 10000 }
+default['redborder']['memory_services']['zookeeper'] = { 'count': 20, 'memory': 0 }
 
 default['redborder']['services'] = {}
 default['redborder']['services']['chef-client'] = true
