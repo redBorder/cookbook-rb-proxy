@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 3.0.0
+
+  - Miguel Negrón
+    - [9a6edd4] Merge pull request #54 from redBorder/improvement/#18961_service_list_without_chef
+
 ## 2.1.0
 
   - Miguel Negrón
