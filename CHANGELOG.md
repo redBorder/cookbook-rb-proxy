@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 3.1.0
+
+  - manegron
+    - [744362b] Update attributes
+
 ## 3.0.0
 
   - Miguel Negrón
