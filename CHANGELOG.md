@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 3.2.0
+
+  - Miguel Negrón
+    - [7596b1e] Merge pull request #57 from redBorder/bugfix/#18169_rename_pmacctd_to_sfacctd_service
+
 ## 3.1.0
 
   - manegron
