@@ -98,6 +98,7 @@ end
 pmacct_config 'Configure pmacct' do
   sensors node.run_state['sensors_info']['flow-sensor']
   if proxy_services['pmacct']
+    sfacctd_ip node['ipaddress']
     action [:add]
   else
     action [:remove]
