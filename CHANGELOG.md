@@ -1,6 +1,12 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 3.2.1
+
+  - JuanSheba
+    - [01ff98d] Add config to create the file with the template
+    - [84462e7] Create template
+
 ## 3.2.0
 
   - Miguel Negrón
