@@ -1,6 +1,37 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 3.2.1
+
+  - JuanSheba
+    - [01ff98d] Add config to create the file with the template
+    - [84462e7] Create template
+
+## 3.2.0
+
+  - Miguel Negrón
+    - [7596b1e] Merge pull request #57 from redBorder/bugfix/#18169_rename_pmacctd_to_sfacctd_service
+
+## 3.1.0
+
+  - manegron
+    - [744362b] Update attributes
+
+## 3.0.0
+
+  - Miguel Negrón
+    - [9a6edd4] Merge pull request #54 from redBorder/improvement/#18961_service_list_without_chef
+
+## 2.1.0
+
+  - Miguel Negrón
+    - [fabdc17] Merge pull request #50 from redBorder/bugfix/#18863_license_in_settings
+
+## 2.0.0
+
+  - Miguel Negron
+    - [6e7bc6a] Add sudoers config
+
 ## 1.0.1
 
   - Miguel Negrón

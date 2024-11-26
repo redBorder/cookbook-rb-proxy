@@ -59,6 +59,8 @@ kafka_config 'Configure Kafka' do
 end
 
 geoip_config 'Configure GeoIP' do
+  user_id node['redborder']['geoip_user']
+  license_key node['redborder']['geoip_key']
   action :add
 end
 
@@ -104,6 +106,7 @@ end
 pmacct_config 'Configure pmacct' do
   sensors node.run_state['sensors_info']['flow-sensor']
   if proxy_services['pmacct']
+    sfacctd_ip node['ipaddress']
     action [:add]
   else
     action [:remove]
@@ -190,7 +193,7 @@ rbcgroup_config 'Configure cgroups' do
 end
 
 rb_clamav_config 'Configure ClamAV' do
-  action(proxy_services['clamav'] ? :add : :remove)
+  action :add
 end
 
 rb_chrony_config 'Configure Chrony' do
@@ -219,3 +222,12 @@ end
 #   mode 'proxy'
 #  action (node['redborder']['services']['radiusd'] ? [:config_common] : [:remove])
 # end
+
+template '/etc/sudoers.d/redBorder' do
+  source 'redBorder.erb'
+  cookbook 'rb-proxy'
+  owner 'root'
+  group 'root'
+  mode '0440'
+  retries 2
+end

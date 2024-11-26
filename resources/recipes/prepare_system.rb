@@ -34,6 +34,14 @@ template '/etc/sysconfig/chef-client' do
   )
 end
 
+template '/etc/logrotate.d/logstash' do
+  source 'logstash_log-rotate.erb'
+  owner 'root'
+  group 'root'
+  mode 0644
+  retries 2
+end
+
 service 'chef-client' do
   if node['redborder']['services']['chef-client']
     action [:enable, :start]
@@ -80,3 +88,15 @@ template '/etc/hosts' do
   retries 2
   variables(hosts_entries: hosts_entries)
 end
+
+# Build service list for rbcli
+services = node['redborder']['services'] || []
+systemd_services = node['redborder']['systemdservices'] || []
+service_enablement = {}
+
+systemd_services.each do |service_name, systemd_name|
+  service_enablement[systemd_name.first] = services[service_name]
+end
+
+Chef::Log.info('Saving services enablement into /etc/redborder/services.json')
+File.write('/etc/redborder/services.json', JSON.pretty_generate(service_enablement))
