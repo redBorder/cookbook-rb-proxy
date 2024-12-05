@@ -1,6 +1,14 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 3.3.0
+
+  - Luis Blanco
+    - [ca23154] Merge pull request #51 from redBorder/feature/18893_integreate_firewall_cookbook
+    - [19392f7] Merge remote-tracking branch 'origin/development' into feature/18893_integreate_firewall_cookbook
+  - nilsver
+    - [5ffe6d7] add firewall cookbook
+
 ## 3.2.1
 
   - JuanSheba
