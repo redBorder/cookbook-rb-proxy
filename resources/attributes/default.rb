@@ -40,6 +40,7 @@ default['redborder']['memory_services']['zookeeper'] = { 'count': 20, 'memory': 
 default['redborder']['services'] = {}
 default['redborder']['services']['chef-client'] = true
 default['redborder']['services']['chrony'] = true
+default['redborder']['services']['firewall'] = true
 default['redborder']['services']['f2k'] = true
 default['redborder']['services']['k2http'] = true
 default['redborder']['services']['kafka'] = true
@@ -58,6 +59,7 @@ default['redborder']['services']['zookeeper'] = true
 
 default['redborder']['systemdservices']['chef-client'] = ['chef-client']
 default['redborder']['systemdservices']['chrony'] = ['chronyd']
+default['redborder']['systemdservices']['firewall'] = ['firewalld']
 default['redborder']['systemdservices']['f2k'] = ['f2k']
 default['redborder']['systemdservices']['k2http'] = ['k2http']
 default['redborder']['systemdservices']['kafka'] = ['kafka']
