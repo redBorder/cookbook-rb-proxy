@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 3.3.0
+
+  - nilsver
+    - [5ffe6d7] add firewall cookbook
+
 ## 3.2.1
 
   - JuanSheba
