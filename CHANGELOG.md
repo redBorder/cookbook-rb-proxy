@@ -1,6 +1,13 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.0.0
+
+  - Miguel Negrón
+    - [2f89e2b] clean code
+    - [8d519ce] Move sensor_id and roles configuration to common
+    - [e45eebe] add missing sensor_id and role.json files
+
 ## 3.3.0
 
   - nilsver
