@@ -232,39 +232,3 @@ template '/etc/sudoers.d/redBorder' do
   mode '0440'
   retries 2
 end
-
-sensor_id = node["redborder"]["sensor_id"]
-if sensor_id.nil?
-  sensor_id = 0
-else
-  sensor_id = sensor_id.to_i
-end
-
-template "/opt/rb/etc/rb-id" do
-  source "variable.erb"
-  cookbook 'rb-proxy'
-  owner "root"
-  group "root"
-  mode 0600
-  retries 2
-  backup false
-  variables(:variable => sensor_id)
-end
-
-template "/etc/chef/role.json" do
-  source "role.json.erb"
-  owner "root"
-  group "root"
-  mode 0644
-  retries 2
-  variables(:sensor_id => sensor_id)
-end
-
-template "/etc/chef/role-once.json" do
-  source "role-once.json.erb"
-  owner "root"
-  group "root"
-  mode 0644
-  retries 2
-  variables(:sensor_id => sensor_id)
-end
