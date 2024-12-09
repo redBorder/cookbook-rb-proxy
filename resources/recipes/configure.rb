@@ -15,6 +15,7 @@ rescue
 end
 
 rb_common_config 'Configure common' do
+  sensor_role 'proxy-sensor'
   action :configure
 end
 
