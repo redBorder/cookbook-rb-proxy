@@ -30,7 +30,7 @@ class Chef
       systemd_services.each do |service_name, systemd_name|
         sys_name = systemd_name.join(',')
         if file_services.key?(sys_name)
-          ips_services[service_name] = file_services[sys_name]
+          proxy_services[service_name] = file_services[sys_name]
         end
       end
 
