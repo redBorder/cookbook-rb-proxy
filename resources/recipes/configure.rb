@@ -232,3 +232,21 @@ template '/etc/sudoers.d/redBorder' do
   mode '0440'
   retries 2
 end
+
+ruby_block 'update_knife_rb' do
+  block do
+    knife_rb_path = '/root/.chef/knife.rb'
+    if node.chef_environment && File.exist?(knife_rb_path)
+      env_setting = "environment '#{node.chef_environment}'"
+
+      file_content = File.read(knife_rb_path)
+      if file_content.match(/^environment\s+".+"/)
+        new_content = file_content.gsub(/^environment\s+".+"/, env_setting)
+      else
+        new_content = file_content + "\n" + env_setting
+      end
+      File.write(knife_rb_path, new_content)
+    end
+  end
+  action :run
+end
