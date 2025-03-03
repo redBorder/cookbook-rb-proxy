@@ -65,9 +65,9 @@ module RbProxy
 
       if str =~ dns_regex
         begin
-          return Resolv.getaddress(str).to_s
+          Resolv.getaddress(str).to_s
         rescue Resolv::ResolvError
-          return nil
+          return
         end
       end
     end
