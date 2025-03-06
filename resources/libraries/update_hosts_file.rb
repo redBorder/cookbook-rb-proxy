@@ -15,9 +15,15 @@ module RbProxy
     end
 
     def update_hosts_file
-      manager_registration_ip = managerToIp(node['redborder']['manager_registration_ip']) if node['redborder'] && node['redborder']['manager_registration_ip']
-
-      return unless manager_registration_ip
+      unless node.dig('redborder', 'resolve_host')
+        domain_name = node.dig('redborder', 'manager_registration_ip')
+        return if domain_name.nil?
+        resolved_ip = manager_to_ip(domain_name)
+        return if resolved_ip.nil?
+        node.normal['redborder']['resolve_host'] = resolved_ip
+      end
+      manager_registration_ip = node.dig('redborder', 'resolve_host')
+      # Up until here, we resolved and stored the ip for /etc/hosts only if necessary
 
       running_services = node['redborder']['systemdservices'].values.flatten if node['redborder']['systemdservices']
       databags = Chef::DataBag.load('rBglobal').keys.grep(/^ipvirtual-external-/).map { |bag| bag.sub('ipvirtual-external-', '') }
