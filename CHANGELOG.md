@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.0.1
+
+  - nilsver
+    - [a4a0af5] fix rbcli service command
+
 ## 4.0.0
 
   - Miguel Negrón
