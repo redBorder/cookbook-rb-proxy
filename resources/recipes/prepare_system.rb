@@ -51,7 +51,7 @@ service 'chef-client' do
 end
 
 # get cdomain
-node.default['redborder']['cdomain'] = File.exist?('/etc/redborder/cdomain') ? File.read('/etc/redborder/cdomain').chomp : 'redborder.cluster'
+node.default['redborder']['cdomain'] = File.exist?('/etc/redborder/cdomain') ? File.read('/etc/redborder/cdomain').chomp : node['redborder']['cdomain']
 
 # get sensors info
 node.run_state['sensors_info'] = get_sensors_info()
