@@ -1,6 +1,17 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.1.0
+
+  - nilsver
+    - [d92993e] cleaner lint
+    - [5e01634] lint
+    - [c5eeda1] add check for file
+    - [b670e2e] add cdomain to nodes
+    - [ce0ba40] fix bug when registering with domain name (#66)
+    - [c25bd1a] Changed typo
+    - [a4a0af5] fix rbcli service command
+
 ## 4.0.1
 
   - nilsver
