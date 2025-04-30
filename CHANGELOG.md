@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.1.1
+
+  - jnavarrorb
+    - [5bb11bc] Fix empty string
+
 ## 4.1.0
 
   - nilsver
