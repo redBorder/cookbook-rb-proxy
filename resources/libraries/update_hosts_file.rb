@@ -61,16 +61,19 @@ module RbProxy
       hosts_info
     end
 
-    def add_virtual_ips_info(hosts_info, manager_registration_ip, cdomain)
+    def grouped_virtual_ips
       # Hash where services (from databag) are grouped by ip
-      grouped_virtual_ips = Hash.new { |hash, key| hash[key] = [] }
+      out = Hash.new { |hash, key| hash[key] = [] }
       external_databag_services.each do |bag|
         virtual_dg = data_bag_item('rBglobal', "ipvirtual-external-#{bag}")
         ip = virtual_dg['ip']
         ip = ip && !ip.empty? ? ip : manager_registration_ip
-        grouped_virtual_ips[ip] << bag.gsub('ipvirtual-external-', '')
+        out[ip] << bag.gsub('ipvirtual-external-', '')
       end
+      out
+    end
 
+    def add_virtual_ips_info(hosts_info, manager_registration_ip, cdomain)
       is_mode_manager = !node['redborder']['cloud']
       grouped_virtual_ips.each do |ip, services|
         services.uniq! # Avoids having duplicate services in the list
