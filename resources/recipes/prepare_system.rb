@@ -76,7 +76,7 @@ sysmem_total = (node['memory']['total'].to_i * 0.90).to_i
 # node attributes related with memory are changed inside the function to have simplicity using recursivity
 memory_services(sysmem_total)
 
-hosts_entries = update_hosts_file()
+hosts_entries = gather_hosts_info
 
 template '/etc/hosts' do
   source 'hosts.erb'
