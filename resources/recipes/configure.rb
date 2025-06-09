@@ -28,6 +28,7 @@ rb_selinux_config 'Configure Selinux' do
 end
 
 rb_firewall_config 'Configure Firewall' do
+  flow_sensor_in_proxy_nodes node.run_state['sensors_info_all']['flow-sensor']
   if proxy_services['firewall']
     action :add
   else
