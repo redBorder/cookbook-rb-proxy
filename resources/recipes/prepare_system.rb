@@ -59,9 +59,6 @@ node.run_state['sensors_info'] = get_sensors_info()
 # get sensors info full info
 node.run_state['sensors_info_all'] = get_sensors_all_info()
 
-# get vault sensors in proxy info
-node.run_state['sensors_info_all']['vault-sensor'] = get_vault_sensors_info('vault')
-
 # get namespaces
 node.run_state['namespaces'] = get_namespaces
 
