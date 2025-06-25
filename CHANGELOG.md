@@ -1,6 +1,12 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.1.2
+
+  - Pablo Pérez
+    - [80ce285] Don't use new methods - use existing methods
+    - [04f160b] Vault sensor info to open the 514 port in rb-firewall
+
 ## 4.1.1
 
   - jnavarrorb
