@@ -28,6 +28,7 @@ rb_selinux_config 'Configure Selinux' do
 end
 
 rb_firewall_config 'Configure Firewall' do
+  vault_sensor_in_proxy_nodes node.run_state['sensors_info_all']['vault-sensor']
   if proxy_services['firewall']
     action :add
   else
