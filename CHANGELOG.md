@@ -1,6 +1,13 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.1.3
+
+  - Juan Soto
+    - [133047f] Get flow sensors
+    - [70a85d7] Send flow sensors to firewall cookbook
+    - [6372c75] Define flow sensors in the proxies
+
 ## 4.1.2
 
   - Pablo Pérez
