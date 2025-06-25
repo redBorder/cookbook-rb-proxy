@@ -59,6 +59,9 @@ node.run_state['sensors_info'] = get_sensors_info()
 # get sensors info full info
 node.run_state['sensors_info_all'] = get_sensors_all_info()
 
+# get flow sensors in proxy info
+node.run_state['sensors_info_all']['flow-sensor'] = get_flow_sensors_info('flow')
+
 # get namespaces
 node.run_state['namespaces'] = get_namespaces
 
