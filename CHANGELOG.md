@@ -4,7 +4,7 @@ cookbook-rb-proxy CHANGELOG
 ## 4.1.4
 
   - nilsver
-    - [0dfef6a] add check every 24h for clean metadata
+    - [306570c] remove flush cache
 
 ## 4.1.3
 
