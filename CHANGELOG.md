@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.1.4
+
+  - nilsver
+    - [306570c] remove flush cache
+
 ## 4.1.3
 
   - Juan Soto
