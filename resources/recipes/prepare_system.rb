@@ -5,11 +5,6 @@
 
 extend RbProxy::Helpers
 
-# clean metadata to get packages upgrades
-execute 'Clean yum metadata' do
-  command 'yum clean metadata'
-end
-
 # Stop rb-register
 if File.exist?('/etc/redborder/sensor-installed.txt')
   service 'rb-register' do
@@ -20,7 +15,6 @@ end
 
 # Configure and enable chef-client
 dnf_package 'redborder-chef-client' do
-  flush_cache [:before]
   action :upgrade
 end
 
@@ -58,6 +52,9 @@ node.run_state['sensors_info'] = get_sensors_info()
 
 # get sensors info full info
 node.run_state['sensors_info_all'] = get_sensors_all_info()
+
+# get flow sensors in proxy info
+node.run_state['sensors_info_all']['flow-sensor'] = get_flow_sensors_info('flow')
 
 # get namespaces
 node.run_state['namespaces'] = get_namespaces
