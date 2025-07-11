@@ -67,7 +67,7 @@ module RbProxy
       hosts_info
     end
 
-    def grouped_virtual_ips
+    def grouped_virtual_ips(manager_registration_ip)
       # Hash where services (from databag) are grouped by ip
       out = Hash.new { |hash, key| hash[key] = [] }
       external_databag_services.each do |bag|
@@ -81,7 +81,7 @@ module RbProxy
 
     def add_virtual_ips_info(hosts_info, manager_registration_ip, cdomain)
       is_mode_manager = !node['redborder']['cloud']
-      grouped_virtual_ips.each do |ip, services|
+      grouped_virtual_ips(manager_registration_ip).each do |ip, services|
         next if ip == '127.0.0.1'
 
         services.uniq! # Avoids having duplicate services in the list
