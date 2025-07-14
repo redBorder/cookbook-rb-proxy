@@ -48,8 +48,7 @@ module RbProxy
             hosts_hash['127.0.0.1'] << "#{new_service}.service"
             next
           end
-          hosts_hash[manager_registration_ip] << "#{new_service}.service"
-          hosts_hash[manager_registration_ip] << "#{new_service}.#{node['redborder']['cdomain']}"
+          hosts_hash[manager_registration_ip] << "#{new_service}.service.#{node['redborder']['cdomain']}"
         end
       end
 
