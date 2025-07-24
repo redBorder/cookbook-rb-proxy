@@ -90,7 +90,7 @@ end
 
 rbscanner_config 'Configure redborder-scanner' do
   scanner_nodes node.run_state['sensors_info_all']['scanner-sensor']
-  if proxy_services['redborder-scanner']
+  if scanner_nodes.any?
     action [:add]
   else
     action [:remove]
