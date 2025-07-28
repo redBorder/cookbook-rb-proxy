@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.1.5
+
+  - nilsver
+    - [b27a4f7] update cdomain to point correctly (#80)
+
 ## 4.1.4
 
   - nilsver
