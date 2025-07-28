@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 name             'rb-proxy'
 maintainer       'Eneo Tecnología S.L.'
 maintainer_email 'git@redborder.com'
 license          'AGPL-3.0'
 description      'Installs/Configures redborder proxy'
-version          '4.1.5'
+version          '4.1.7'
 
 depends 'rb-common'
 depends 'rb-selinux'

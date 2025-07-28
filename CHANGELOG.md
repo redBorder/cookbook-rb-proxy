@@ -1,6 +1,16 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.1.7
+
+  - jnavarrorb
+    - [f85706b] Remove executable permissions on non-executable files
+
+## 4.1.6
+
+  - nilsver
+    - [c6f4050] optimise scanner
+
 ## 4.1.5
 
   - nilsver
