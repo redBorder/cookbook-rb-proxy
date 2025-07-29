@@ -97,8 +97,7 @@ module RbProxy
             hosts_info[ip]['services'] << "#{service}.service"
             hosts_info[ip]['services'] << "#{service}.#{cdomain}"
           else # default ip
-            hosts_info[manager_registration_ip]['services'] << "#{service}.service"
-            hosts_info[manager_registration_ip]['services'] << "#{service}.#{node['redborder']['cdomain']}"
+            hosts_info[manager_registration_ip]['services'] << "#{service}.service.#{node['redborder']['cdomain']}"
           end
         end
       end
