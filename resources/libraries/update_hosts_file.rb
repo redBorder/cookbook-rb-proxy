@@ -46,8 +46,8 @@ module RbProxy
 
     def add_manager_names_info(hosts_info, manager_registration_ip, cdomain)
       hosts_info[manager_registration_ip] = {}
-      intrusion_node_name = "#{node.name}.node"
-      node_names = manager_node_names << intrusion_node_name # append
+      proxy_node_name = "#{node.name}.node"
+      node_names = manager_node_names << proxy_node_name # append
       hosts_info[manager_registration_ip]['node_names'] = node_names
       hosts_info[manager_registration_ip]['cdomain'] = cdomain if cdomain
       hosts_info
