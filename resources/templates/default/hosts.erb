@@ -13,6 +13,7 @@ end
 
 LOCAL_IP = '127.0.0.1'
 v4_local_names = %w[ localhost localhost.localdomain localhost4 localhost4.localdomain4 ]
+v4_local_names << @hosts_entries.dig(LOCAL_IP,'node_name')
 services = @hosts_entries.dig(LOCAL_IP,'services') || []
 v4_local_names |= services
 # v4_local_names |= %w[ Add here your local hostnames ]
