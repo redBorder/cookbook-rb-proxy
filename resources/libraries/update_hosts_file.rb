@@ -47,14 +47,14 @@ module RbProxy
       hosts_info
     end
 
-    def add_manager_names_info(hosts_info, manager_registration_ip, cdomain)
-      hosts_info[manager_registration_ip] = {}
-      hosts_info[manager_registration_ip]['node_names'] = manager_node_names
-      hosts_info[manager_registration_ip]['cdomain'] = cdomain if cdomain
+    def add_manager_names_info(hosts_info, manager_ip, cdomain)
+      hosts_info[manager_ip] = {}
+      hosts_info[manager_ip]['node_names'] = manager_node_names
+      hosts_info[manager_ip]['cdomain'] = cdomain if cdomain
       hosts_info
     end
 
-    def add_manager_services_info(hosts_info, manager_registration_ip, cdomain)
+    def add_manager_services_info(hosts_info, manager_ip, cdomain)
       # This services are critical for the use of chef to rewrite the hosts file
       implicit_services = ['erchef.service']
       if cdomain
@@ -68,25 +68,25 @@ module RbProxy
                        else
                          []
                        end
-      hosts_info[manager_registration_ip]['services'] = implicit_services + other_services
+      hosts_info[manager_ip]['services'] = implicit_services + other_services
       hosts_info
     end
 
-    def grouped_virtual_ips(manager_registration_ip)
+    def grouped_virtual_ips(manager_ip)
       # Hash where services (from databag) are grouped by ip
       out = Hash.new { |hash, key| hash[key] = [] }
       external_databag_services.each do |bag|
         virtual_dg = data_bag_item('rBglobal', "ipvirtual-external-#{bag}")
         ip = virtual_dg['ip']
-        ip = ip && !ip.empty? ? ip : manager_registration_ip
+        ip = ip && !ip.empty? ? ip : manager_ip
         out[ip] << bag.gsub('ipvirtual-external-', '')
       end
       out
     end
 
-    def add_virtual_ips_info(hosts_info, manager_registration_ip, cdomain)
+    def add_virtual_ips_info(hosts_info, manager_ip, cdomain)
       is_mode_manager = !node['redborder']['cloud']
-      grouped_virtual_ips(manager_registration_ip).each do |ip, services|
+      grouped_virtual_ips(manager_ip).each do |ip, services|
         next if ip == '127.0.0.1'
 
         services.uniq! # Avoids having duplicate services in the list
@@ -98,7 +98,7 @@ module RbProxy
             hosts_info[ip]['services'] << "#{service}.service"
             hosts_info[ip]['services'] << "#{service}.#{cdomain}"
           else # default ip
-            hosts_info[manager_registration_ip]['services'] << "#{service}.service.#{node['redborder']['cdomain']}"
+            hosts_info[manager_ip]['services'] << "#{service}.service.#{node['redborder']['cdomain']}"
           end
         end
       end
@@ -107,18 +107,18 @@ module RbProxy
 
     def gather_hosts_info
       # This is updated on cluster settings change
-      manager_registration_ip = node.dig('redborder', 'cluster_link_ip')
+      manager_ip = node.dig('redborder', 'cluster_link_ip')
       # This is managed by ohai and represents the first registered IP
-      manager_registration_ip ||= node.dig('redborder', 'manager_registration_ip')
-      return {} unless manager_registration_ip
+      manager_ip ||= node.dig('redborder', 'manager_registration_ip')
+      return {} unless manager_ip
 
       cdomain = node.dig('redborder', 'cdomain')
 
       hosts_info = {}
       hosts_info = add_localhost_info(hosts_info)
-      hosts_info = add_manager_names_info(hosts_info, manager_registration_ip, cdomain)
-      hosts_info = add_manager_services_info(hosts_info, manager_registration_ip, cdomain)
-      add_virtual_ips_info(hosts_info, manager_registration_ip, cdomain) # returns hosts_info
+      hosts_info = add_manager_names_info(hosts_info, manager_ip, cdomain)
+      hosts_info = add_manager_services_info(hosts_info, manager_ip, cdomain)
+      add_virtual_ips_info(hosts_info, manager_ip, cdomain) # returns hosts_info
     end
   end
 end
