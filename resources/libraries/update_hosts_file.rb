@@ -106,7 +106,10 @@ module RbProxy
     end
 
     def gather_hosts_info
-      manager_registration_ip = node.dig('redborder', 'manager_registration_ip')
+      # This is updated on cluster settings change
+      manager_registration_ip = node.dig('redborder', 'cluster_link_ip')
+      # This is managed by ohai and represents the first registered IP
+      manager_registration_ip |= node.dig('redborder', 'manager_registration_ip')
       return {} unless manager_registration_ip
 
       cdomain = node.dig('redborder', 'cdomain')
