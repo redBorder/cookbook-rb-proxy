@@ -56,6 +56,9 @@ node.run_state['sensors_info_all'] = get_sensors_all_info()
 # get flow sensors in proxy info
 node.run_state['sensors_info_all']['flow-sensor'] = get_flow_sensors_info('flow')
 
+#Custom node extration for monitor
+node.run_state['flow_nodes'] = get_nodes(['flow-sensor'])
+
 # get namespaces
 node.run_state['namespaces'] = get_namespaces
 
