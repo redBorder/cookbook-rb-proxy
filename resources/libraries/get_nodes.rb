@@ -1,15 +1,18 @@
 module RbProxy
   module Helpers
     # Format of nodes differs from roles, in this case, we extract the info in node format
+    # OUT: HASHMAP { 
+    #               KEYS: SENSOR TYPES, VALUES ARRAY OF 
+    #                HASHMAP SENSOR {
+    #
+    #                }
     def get_nodes(sensor_types = ['flow-sensor'])
-      sensors_info = {}
       proxy_id = node['redborder']['sensor_id']
-      sensor_types.each do |s_type|
+      out = sensor_types.each_with_object({}) do |s_type, sensors_info|
         sensors = search(:node, "role:#{s_type} AND redborder_parent_id:#{proxy_id}").sort
-        sensors_info[s_type] = []
-        sensors.each { |s| sensors_info[s_type] << s }
+        sensors_info[s_type] = sensors
       end
-      sensors_info
+      out
     end
   end
 end
