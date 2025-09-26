@@ -1,11 +1,6 @@
 module RbProxy
   module Helpers
     # Format of nodes differs from roles, in this case, we extract the info in node format
-    # OUT: HASHMAP { 
-    #               KEYS: SENSOR TYPES, VALUES ARRAY OF 
-    #                HASHMAP SENSOR {
-    #
-    #                }
     def get_nodes(sensor_types = ['flow-sensor'])
       proxy_id = node['redborder']['sensor_id']
       out = sensor_types.each_with_object({}) do |s_type, sensors_info|
