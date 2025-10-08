@@ -1,6 +1,14 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.1.8
+
+  - ljblancoredborder
+    - [8abdcab] fix passing params to new resource for proxy to cookbook monitor
+    - [ec30d64] adaptation of get_nodes function, explaining current data strcuture
+    - [12766df] adding alternative funtion for monitor
+    - [6140d36] retrieving monitor categories from node info instead of role info
+
 ## 4.1.7
 
   - jnavarrorb
