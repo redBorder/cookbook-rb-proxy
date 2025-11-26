@@ -79,8 +79,8 @@ end
 
 rbmonitor_config 'Configure redborder-monitor' do
   name node['hostname']
-  device_nodes node.run_state['sensors_info_all']['device-sensor']
   proxy_flow_nodes node.run_state['proxy_flow_nodes']
+  proxy_device_nodes node.run_state['proxy_device_nodes']
   if proxy_services['redborder-monitor']
     action :add
   else

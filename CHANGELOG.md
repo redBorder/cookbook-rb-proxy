@@ -1,6 +1,10 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.1.9
+
+    - [1647630] Modify redborder-monitor configure
+
 ## 4.1.8
 
   - ljblancoredborder
