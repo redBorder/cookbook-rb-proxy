@@ -81,6 +81,9 @@ rbmonitor_config 'Configure redborder-monitor' do
   name node['hostname']
   proxy_flow_nodes node.run_state['proxy_flow_nodes']
   proxy_device_nodes node.run_state['proxy_device_nodes']
+  proxy_snmp_nodes node.run_state['proxy_snmp_nodes']
+  proxy_redfish_nodes node.run_state['proxy_redfish_nodes']
+  proxy_ipmi_nodes node.run_state['proxy_ipmi_nodes']
   if proxy_services['redborder-monitor']
     action :add
   else
@@ -122,6 +125,8 @@ logstash_config 'Configure logstash' do
   namespaces node.run_state['namespaces']
   vault_nodes node.run_state['sensors_info_all']['vault-sensor']
   device_nodes node.run_state['sensors_info_all']['device-sensor']
+  snmp_nodes node.run_state['sensors_info_all']['snmp-sensor']
+  redfish_nodes node.run_state['sensors_info_all']['redfish-sensor']
   logstash_pipelines node.default['pipelines']
   if !logstash_pipelines.nil? && !logstash_pipelines.empty?
     action [:add]

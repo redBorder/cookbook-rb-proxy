@@ -2,7 +2,7 @@ module RbProxy
   module Helpers
     def get_sensors_info
       sensors_info = {}
-      sensor_types = %w(vault-sensor flow-sensor mse-sensor scanner-sensor meraki-sensor ale-sensor device-sensor)
+      sensor_types = %w(vault-sensor flow-sensor mse-sensor scanner-sensor meraki-sensor ale-sensor device-sensor snmp-sensor redfish-sensor ipmi-sensor)
 
       locations = {}
       if node['redborder'] && node['redborder']['locations']
