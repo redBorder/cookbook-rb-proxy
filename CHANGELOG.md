@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.1.10
+
+  - Miguel Negron
+    - [4e2e359] Add snmp, redfish and ipmi sensors (#90)
+
 ## 4.1.9
 
     - [1647630] Modify redborder-monitor configure
