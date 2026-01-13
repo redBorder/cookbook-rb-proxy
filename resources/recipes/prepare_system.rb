@@ -59,6 +59,9 @@ node.run_state['sensors_info_all']['flow-sensor'] = get_flow_sensors_info('flow'
 # Custom node extration for monitor
 node.run_state['proxy_flow_nodes']   = get_nodes('flow-sensor')
 node.run_state['proxy_device_nodes'] = get_nodes('device-sensor')
+node.run_state['proxy_snmp_nodes'] = get_nodes('snmp-sensor')
+node.run_state['proxy_redfish_nodes'] = get_nodes('redfish-sensor')
+node.run_state['proxy_ipmi_nodes'] = get_nodes('ipmi-sensor')
 
 # get namespaces
 node.run_state['namespaces'] = get_namespaces
