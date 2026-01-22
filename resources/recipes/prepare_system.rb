@@ -63,9 +63,6 @@ node.run_state['proxy_snmp_nodes'] = get_nodes('snmp-sensor')
 node.run_state['proxy_redfish_nodes'] = get_nodes('redfish-sensor')
 node.run_state['proxy_ipmi_nodes'] = get_nodes('ipmi-sensor')
 
-# get namespaces
-node.run_state['namespaces'] = get_namespaces
-
 # get logstash pipelines
 node.default['pipelines'] = get_pipelines()
 
