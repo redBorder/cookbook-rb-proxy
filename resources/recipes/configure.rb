@@ -122,7 +122,6 @@ end
 logstash_config 'Configure logstash' do
   cdomain node['redborder']['cdomain']
   flow_nodes node.run_state['sensors_info_all']['flow-sensor']
-  namespaces node.run_state['namespaces']
   vault_nodes node.run_state['sensors_info_all']['vault-sensor']
   device_nodes node.run_state['sensors_info_all']['device-sensor']
   snmp_nodes node.run_state['sensors_info_all']['snmp-sensor']
