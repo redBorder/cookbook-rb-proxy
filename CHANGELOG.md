@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.1.11
+
+  - Miguel Negron
+    - [0014b26] We dont need to know the namespaces in the proxy (#92)
+
 ## 4.1.10
 
   - Miguel Negron
