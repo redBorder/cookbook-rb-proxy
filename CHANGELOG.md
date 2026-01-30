@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.1.12
+
+  - manegron
+    - [23d6cc0] Add rescue
+
 ## 4.1.11
 
   - Miguel Negron
