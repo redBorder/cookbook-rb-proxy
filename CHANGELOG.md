@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.1.13
+
+  - manegron
+    - [e46d145] add rescue
+
 ## 4.1.12
 
   - manegron
