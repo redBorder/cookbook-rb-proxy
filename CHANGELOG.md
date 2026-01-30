@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.1.14
+
+  - manegron
+    - [747c61b] Update log level
+
 ## 4.1.13
 
   - manegron
