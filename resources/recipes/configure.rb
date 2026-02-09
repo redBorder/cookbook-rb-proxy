@@ -77,14 +77,6 @@ snmp_config 'Configure snmp' do
   end
 end
 
-rb_net_snmp_config 'Configure rb-net-snmp' do
-  if proxy_services['rb-net-snmp']
-    action :add
-  else
-    action :remove
-  end
-end
-
 rbmonitor_config 'Configure redborder-monitor' do
   name node['hostname']
   proxy_flow_nodes node.run_state['proxy_flow_nodes']
