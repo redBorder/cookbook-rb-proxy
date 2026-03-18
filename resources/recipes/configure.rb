@@ -77,21 +77,6 @@ snmp_config 'Configure snmp' do
   end
 end
 
-# W this conf allow snmp connections
-
-template '/usr/local/bin/semodule_snmp_kafka.sh' do
-  source 'semodule_snmp_kafka.conf.erb'
-  mode '0755'
-  owner 'root'
-  group 'root'
-end
-
-execute 'install_rb_snmp_kafka_policy' do
-  command '/usr/local/bin/semodule_snmp_kafka.sh'
-  not_if 'semodule -l | grep allow_snmp_connection'
-  action :run
-end
-
 rbmonitor_config 'Configure redborder-monitor' do
   name node['hostname']
   proxy_flow_nodes node.run_state['proxy_flow_nodes']
