@@ -1,3 +1,0 @@
-#!/bin/bash
-grep "snmpd_t" /var/log/audit/audit.log | audit2allow -M allow_snmp_connection
-semodule -i allow_snmp_connection.pp
