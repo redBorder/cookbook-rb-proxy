@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.2.0
+
+  - Jose Jimenez
+    - [9bace87] Rename and enable service to snmptrapd 
+
 ## 4.1.14
 
   - manegron
