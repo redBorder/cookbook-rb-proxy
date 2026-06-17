@@ -1,6 +1,15 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.3.0
+
+  - Jose Jimenez
+    - [d6f5437] add http_agent nodes (#101)
+    - [129e732] Add config to allow snmp connection
+    - [9bace87] Rename service to snmptrapd
+    - [9f9c684] Delete calls to cookbook-rb-net-snmp
+    - [3e010d3] feat: Add attributes to confg. rb-net-snmp
+
 ## 4.2.0
 
   - Jose Jimenez
