@@ -79,5 +79,5 @@ default['redborder']['systemdservices']['rsyslog'] = ['rsyslog']
 default['redborder']['systemdservices']['snmp'] = ['snmpd']
 default['redborder']['systemdservices']['zookeeper'] = ['zookeeper']
 
-default['redborder']['services']['rb-proxy-net-tools'] = true
-default['redborder']['systemdservices']['rb-proxy-net-tools'] = ['rb-proxy-net-tools']
+default['redborder']['services']['rb-net-tools'] = true
+default['redborder']['systemdservices']['rb-net-tools'] = ['rb-net-tools']

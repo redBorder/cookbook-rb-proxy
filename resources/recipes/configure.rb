@@ -101,11 +101,11 @@ rbscanner_config 'Configure redborder-scanner' do
   end
 end
 
-rb_proxy_net_tools_config 'Configure rb-proxy-net-tools' do
+rb_net_tools_config 'Configure rb-net-tools' do
   cdomain     node['redborder']['cdomain']
   sensor_uuid node['redborder']['sensor_uuid']
   rb_webui    "webui.#{node['redborder']['cdomain']}"
-  if proxy_services['rb-proxy-net-tools']
+  if proxy_services['rb-net-tools']
     action [:add]
   else
     action [:remove]
