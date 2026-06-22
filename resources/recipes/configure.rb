@@ -84,6 +84,8 @@ rbmonitor_config 'Configure redborder-monitor' do
   proxy_snmp_nodes node.run_state['proxy_snmp_nodes']
   proxy_redfish_nodes node.run_state['proxy_redfish_nodes']
   proxy_ipmi_nodes node.run_state['proxy_ipmi_nodes']
+  proxy_vmware_exsi_nodes node.run_state['proxy_vmware_exsi_nodes']
+  proxy_vmware_exsi_vm_nodes node.run_state['proxy_vmware_exsi_vm_nodes']
   if proxy_services['redborder-monitor']
     action :add
   else
