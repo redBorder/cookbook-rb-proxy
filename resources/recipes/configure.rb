@@ -101,6 +101,17 @@ rbscanner_config 'Configure redborder-scanner' do
   end
 end
 
+rb_net_tools_config 'Configure redborder-net-tools' do
+  cdomain     node['redborder']['cdomain']
+  sensor_uuid node['redborder']['sensor_uuid']
+  rb_webui    "webui.service.#{node['redborder']['cdomain']}"
+  if proxy_services['redborder-net-tools']
+    action [:add]
+  else
+    action [:remove]
+  end
+end
+
 f2k_config 'Configure f2k' do
   sensors node.run_state['sensors_info']['flow-sensor']
   if proxy_services['f2k']
