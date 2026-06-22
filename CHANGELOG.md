@@ -1,6 +1,34 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.4.0
+
+  - Miguel Negrón
+    - [4659342] Merge pull request #103 from redBorder/feature/#25576_net_tools_for_proxy
+  - manegron
+    - [4659342] Merge pull request #103 from redBorder/feature/#25576_net_tools_for_proxy
+    - [cb1288d] Add redborder-net-tools to attributes
+    - [8a1f14f] Change cookbook net tools name
+    - [d9960b1] Add webui url
+    - [a555092] Rename net tools
+    - [a6d09c2] First version rb-proxy-net-tools
+  - david vhk
+    - [973f273] Merge branch 'master' into development
+  - David Vanhoucke
+    - [b68989e] bump version
+  - Jose Jimenez
+    - [d6f5437] add http_agent nodes (#101)
+    - [bcfc256] Merge pull request #98 from redBorder/improvement/#23621_update_net-snmp_fork_and_reinstale_kafka_trap_output
+  - Pablo Pérez
+    - [692d8db] Release 4.2.0
+  - José Jiménez
+    - [6c3e248] Delete semodule_snmp_kafka
+    - [d746f57] Delete config about selinux
+    - [129e732] Add config to allow snmp connection
+    - [9bace87] Rename service to snmptrapd
+    - [9f9c684] Delete calls to cookbook-rb-net-snmp
+    - [3e010d3] feat: Add attributes to confg. rb-net-snmp
+
 ## 4.3.0
 
   - Jose Jimenez
