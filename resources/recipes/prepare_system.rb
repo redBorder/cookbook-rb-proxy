@@ -56,6 +56,9 @@ node.run_state['sensors_info_all'] = get_sensors_all_info()
 # get flow sensors in proxy info
 node.run_state['sensors_info_all']['flow-sensor'] = get_flow_sensors_info('flow')
 
+# get vault sensors in proxy info
+node.run_state['sensors_info_all']['vault-sensor'] = get_flow_sensors_info('vault')
+
 # Custom node extration for monitor
 node.run_state['proxy_flow_nodes']   = get_nodes('flow-sensor')
 node.run_state['proxy_device_nodes'] = get_nodes('device-sensor')
