@@ -64,6 +64,7 @@ node.run_state['proxy_redfish_nodes'] = get_nodes('redfish-sensor')
 node.run_state['proxy_ipmi_nodes'] = get_nodes('ipmi-sensor')
 node.run_state['proxy_vmware_exsi_nodes'] = get_nodes('vmware_exsi-sensor')
 node.run_state['proxy_vmware_exsi_vm_nodes'] = get_nodes('vmware_exsi_vm-sensor')
+node.run_state['proxy_http_agent_nodes'] = get_nodes('http_agent-sensor')
 
 # get logstash pipelines
 node.default['pipelines'] = get_pipelines()

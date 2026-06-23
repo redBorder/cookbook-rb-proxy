@@ -86,6 +86,7 @@ rbmonitor_config 'Configure redborder-monitor' do
   proxy_ipmi_nodes node.run_state['proxy_ipmi_nodes']
   proxy_vmware_exsi_nodes node.run_state['proxy_vmware_exsi_nodes']
   proxy_vmware_exsi_vm_nodes node.run_state['proxy_vmware_exsi_vm_nodes']
+  proxy_http_agent_nodes node.run_state['proxy_http_agent_nodes']
   if proxy_services['redborder-monitor']
     action :add
   else
@@ -96,6 +97,17 @@ end
 rbscanner_config 'Configure redborder-scanner' do
   scanner_nodes node.run_state['sensors_info_all']['scanner-sensor']
   if scanner_nodes.any?
+    action [:add]
+  else
+    action [:remove]
+  end
+end
+
+rb_net_tools_config 'Configure redborder-net-tools' do
+  cdomain     node['redborder']['cdomain']
+  sensor_uuid node['redborder']['sensor_uuid']
+  rb_webui    "webui.service.#{node['redborder']['cdomain']}"
+  if proxy_services['redborder-net-tools']
     action [:add]
   else
     action [:remove]
