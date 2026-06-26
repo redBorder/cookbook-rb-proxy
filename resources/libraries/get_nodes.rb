@@ -9,7 +9,7 @@ module RbProxy
         if host_ids.empty?
           []
         else
-          query_str = host_ids.map { |id| "redborder_parent_id:#{id}" }.join(" OR ")
+          query_str = host_ids.map { |id| "redborder_parent_id:#{id}" }.join(' OR ')
           search(:node, "role:vmware-exsi-vm-sensor AND (#{query_str})").sort
         end
       else
