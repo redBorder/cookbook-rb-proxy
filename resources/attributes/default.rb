@@ -82,4 +82,4 @@ default['redborder']['systemdservices']['snmp'] = ['snmpd']
 default['redborder']['systemdservices']['zookeeper'] = ['zookeeper']
 
 default['redborder']['services']['redborder-net-tools'] = true
-default['redborder']['systemdservices']['redborder-net-tools'] = ['redborder-net-tools']
+
