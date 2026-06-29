@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.5.0
+
+  - manegron
+    - [8cc3e64] Solve services.json not being updated and clean repeated line in attributes/default.rb
+
 ## 4.4.0
 
   - Miguel Negrón
