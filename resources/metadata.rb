@@ -5,7 +5,7 @@ maintainer       'Eneo Tecnología S.L.'
 maintainer_email 'git@redborder.com'
 license          'AGPL-3.0'
 description      'Installs/Configures redborder proxy'
-version          '4.4.0'
+version          '4.5.1'
 
 depends 'rb-common'
 depends 'rb-selinux'

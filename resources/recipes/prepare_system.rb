@@ -56,6 +56,10 @@ node.run_state['sensors_info_all'] = get_sensors_all_info()
 # get flow sensors in proxy info
 node.run_state['sensors_info_all']['flow-sensor'] = get_flow_sensors_info('flow')
 
+# get vault sensors in proxy info (separate key: rsyslog_config still needs the
+# raw sensors_info_all['vault-sensor'] shape from get_sensors_all_info above)
+node.run_state['vault_sensor_in_proxy_nodes'] = get_flow_sensors_info('vault')
+
 # Custom node extration for monitor
 node.run_state['proxy_flow_nodes']   = get_nodes('flow-sensor')
 node.run_state['proxy_device_nodes'] = get_nodes('device-sensor')
@@ -93,15 +97,13 @@ template '/etc/hosts' do
 end
 
 # Build service list for rbcli
-unless File.exist?('/etc/redborder/services.json')
-  services = node['redborder']['services'] || []
-  systemd_services = node['redborder']['systemdservices'] || []
-  service_enablement = {}
+services = node['redborder']['services'] || []
+systemd_services = node['redborder']['systemdservices'] || []
+service_enablement = {}
 
-  systemd_services.each do |service_name, systemd_name|
-    service_enablement[systemd_name.first] = services[service_name]
-  end
-
-  Chef::Log.info('Saving services enablement into /etc/redborder/services.json')
-  File.write('/etc/redborder/services.json', JSON.pretty_generate(service_enablement))
+systemd_services.each do |service_name, systemd_name|
+  service_enablement[systemd_name.first] = services[service_name]
 end
+
+Chef::Log.info('Saving services enablement into /etc/redborder/services.json')
+File.write('/etc/redborder/services.json', JSON.pretty_generate(service_enablement))
