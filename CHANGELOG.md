@@ -1,6 +1,12 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.5.1
+
+  - aguzman
+    - [3273810] fix(prepare_system,configure): use dedicated key for vault sensor proxy mapping
+    - [5b53603] bugfix(addinfo) vault sensor proxy info
+
 ## 4.5.0
 
   - manegron
