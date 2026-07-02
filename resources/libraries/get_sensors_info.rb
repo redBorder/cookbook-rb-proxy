@@ -2,7 +2,7 @@ module RbProxy
   module Helpers
     def get_sensors_info
       sensors_info = {}
-      sensor_types = %w(vault-sensor flow-sensor mse-sensor scanner-sensor meraki-sensor ale-sensor device-sensor snmp-sensor redfish-sensor ipmi-sensor http_agent-sensor)
+      sensor_types = %w(vault-sensor flow-sensor mse-sensor scanner-sensor meraki-sensor ale-sensor device-sensor snmp-sensor redfish-sensor ipmi-sensor http_agent-sensor vmware-exsi-sensor vmware-exsi-vm-sensor)
 
       locations = {}
       if node['redborder'] && node['redborder']['locations']
@@ -10,7 +10,17 @@ module RbProxy
       end
 
       sensor_types.each do |s_type|
-        sensors = search(:node, "role:#{s_type} AND redborder_parent_id:#{node['redborder']['sensor_id']}").sort
+        sensors =
+          if s_type == 'vmware-exsi-vm-sensor'
+            hosts = search(:node, "role:vmware-exsi-sensor AND redborder_parent_id:#{node['redborder']['sensor_id']}")
+            host_names = hosts.map(&:name)
+            search(:node, 'role:vmware-exsi-vm-sensor').select do |vm|
+              parent_id = vm.dig('redborder', 'parent_id')
+              host_names.include?("rbvmware-exsi-#{parent_id}")
+            end.sort
+          else
+            search(:node, "role:#{s_type} AND redborder_parent_id:#{node['redborder']['sensor_id']}").sort
+          end
         info = {}
         found_sensor = false
 
