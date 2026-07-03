@@ -1,6 +1,13 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.6.0
+
+  - Nils
+    - [ae35908] make exsi sensors work with redborder-monitor in proxy
+    - [0788797] implement govmomi 
+    - [5f3aa52] add vmware nodes to proxy
+
 ## 4.5.1
 
   - aguzman
