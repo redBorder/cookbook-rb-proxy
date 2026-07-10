@@ -70,6 +70,7 @@ end
 snmp_config 'Configure snmp' do
   hostname node['hostname']
   cdomain node['redborder']['cdomain']
+  trap_sensors node.run_state['proxy_trap_nodes']
   if proxy_services['snmp']
     action :add
   else
