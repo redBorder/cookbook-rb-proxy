@@ -24,6 +24,15 @@ default['redborder']['kafka']['host_index'] = 0
 default['redborder']['zookeeper']['zk_hosts'] = ''
 default['redborder']['zookeeper']['port'] = 2181
 
+# redborder-satellite
+
+default['redborder']['redborder-satellite']['hub_url'] = 'wss://redborder-hub.redborder.cluster/ws'
+default['redborder']['redborder-satellite']['auth_token'] = 'super-secret-agent-token'
+default['redborder']['redborder-satellite']['private_key_path'] = '/etc/redborder-satellite/redborder-satellite.key'
+default['redborder']['redborder-satellite']['agent_id'] = node['hostname']
+default['redborder']['redborder-satellite']['insecure_skip_verify'] = true
+default['redborder']['redborder-satellite']['commands'] = {}
+
 # memory
 default['redborder']['memory_services'] = {}
 default['redborder']['memory_services']['chef-server'] = { 'count': 10, 'memory': 0 }
@@ -37,6 +46,7 @@ default['redborder']['memory_services']['redborder-nmsp'] = { 'count': 10, 'memo
 default['redobrder']['memory_services']['snmptrap'] = { 'count': 10, 'memory': 0 }
 default['redborder']['memory_services']['snmp'] = { 'count': 5, 'memory': 0, 'max_limit': 10000 }
 default['redborder']['memory_services']['zookeeper'] = { 'count': 20, 'memory': 0 }
+default['redborder']['memory_services']['redborder-satellite'] = { 'count': 10, 'memory': 0 }
 
 default['redborder']['services'] = {}
 default['redborder']['services']['chef-client'] = true
@@ -59,6 +69,7 @@ default['redborder']['services']['snmptrap'] = true
 default['redborder']['services']['rsyslog'] = true
 default['redborder']['services']['snmp'] = true
 default['redborder']['services']['zookeeper'] = true
+default['redborder']['services']['redborder-satellite'] = true
 
 default['redborder']['systemdservices']['chef-client'] = ['chef-client']
 default['redborder']['systemdservices']['chrony'] = ['chronyd']
@@ -80,5 +91,6 @@ default['redborder']['systemdservices']['snmptrap'] = ['snmptrapd']
 default['redborder']['systemdservices']['rsyslog'] = ['rsyslog']
 default['redborder']['systemdservices']['snmp'] = ['snmpd']
 default['redborder']['systemdservices']['zookeeper'] = ['zookeeper']
+default['redborder']['systemdservices']['redborder-satellite'] = ['redborder-satellite']
 
 default['redborder']['services']['redborder-net-tools'] = true
