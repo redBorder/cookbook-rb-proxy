@@ -23,25 +23,9 @@ default['redborder']['kafka']['host_index'] = 0
 # zookeeper
 default['redborder']['zookeeper']['zk_hosts'] = ''
 default['redborder']['zookeeper']['port'] = 2181
-
-default['redborder']['redborder-satellite']['hub_url'] = 'wss://redborder-hub.redborder.cluster/ws'
-default['redborder']['redborder-satellite']['auth_token'] = 'super-secret-agent-token'
-default['redborder']['redborder-satellite']['private_key_path'] = '/etc/redborder-satellite/redborder-satellite.key'
-default['redborder']['redborder-satellite']['agent_id'] = node['hostname']
-default['redborder']['redborder-satellite']['insecure_skip_verify'] = true
-default['redborder']['redborder-satellite']['commands'] = {}
-
-# -----------------------------------------------------------------------------------------
-# Memory & Cgroups Configuration (memory_services)
-#
-# Only core redBorder applications and heavy data processing engines are defined here.
-# These services receive a proportional share of 90% host RAM and are throttled via Cgroups v2
-# (redborder.slice).
-#
-# Deliberately EXCLUDED services (run unconstrained in system.slice using reserved 10% OS RAM):
-#   - Base OS / Monitoring / Logging: snmpd, snmptrapd, rsyslog, chef-client, chronyd, firewalld
-# -----------------------------------------------------------------------------------------
 default['redborder']['memory_services'] = {}
+
+# memory
 default['redborder']['memory_services']['f2k']                 = { 'count': 40, 'memory': 0 }
 default['redborder']['memory_services']['k2http']              = { 'count': 10, 'memory': 0 }
 default['redborder']['memory_services']['kafka']               = { 'count': 150, 'memory': 0, 'max_limit': 524288 }
