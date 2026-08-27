@@ -23,9 +23,9 @@ default['redborder']['kafka']['host_index'] = 0
 # zookeeper
 default['redborder']['zookeeper']['zk_hosts'] = ''
 default['redborder']['zookeeper']['port'] = 2181
-default['redborder']['memory_services'] = {}
 
 # memory
+default['redborder']['memory_services'] = {}
 default['redborder']['memory_services']['f2k']                 = { 'count': 40, 'memory': 0 }
 default['redborder']['memory_services']['k2http']              = { 'count': 10, 'memory': 0 }
 default['redborder']['memory_services']['kafka']               = { 'count': 150, 'memory': 0, 'max_limit': 524288 }
