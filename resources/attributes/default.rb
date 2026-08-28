@@ -25,8 +25,8 @@ default['redborder']['zookeeper']['zk_hosts'] = ''
 default['redborder']['zookeeper']['port'] = 2181
 
 # redborder-satellite
-
-default['redborder']['redborder-satellite']['hub_url'] = 'wss://redborder-hub.redborder.cluster/ws'
+cdomain = node['redborder']['cdomain']
+default['redborder']['redborder-satellite']['hub_url'] = "wss://redborder-hub.#{cdomain}/ws"
 default['redborder']['redborder-satellite']['auth_token'] = 'super-secret-agent-token'
 default['redborder']['redborder-satellite']['private_key_path'] = '/etc/redborder-satellite/redborder-satellite.key'
 default['redborder']['redborder-satellite']['agent_id'] = node['hostname']
