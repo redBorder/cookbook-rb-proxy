@@ -41,6 +41,7 @@ default['redborder']['memory_services']['redborder-nmsp']       = { 'count': 10,
 default['redborder']['memory_services']['redborder-satellite']  = { 'count': 10, 'memory': 0 }
 default['redborder']['memory_services']['redborder-scanner']    = { 'count': 10, 'memory': 0 }
 default['redborder']['memory_services']['zookeeper']            = { 'count': 20, 'memory': 0 }
+# Excluded services: chef-client, chrony, rsyslog, snmpd, snmptrapd, firewalld
 
 default['redborder']['services'] = {}
 default['redborder']['services']['chef-client'] = true
