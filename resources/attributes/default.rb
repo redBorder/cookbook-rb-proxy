@@ -26,17 +26,22 @@ default['redborder']['zookeeper']['port'] = 2181
 
 # memory
 default['redborder']['memory_services'] = {}
-default['redborder']['memory_services']['chef-server'] = { 'count': 10, 'memory': 0 }
-default['redborder']['memory_services']['f2k'] = { 'count': 40, 'memory': 0 }
-default['redborder']['memory_services']['http2k'] = { 'count': 10, 'memory': 0 }
-default['redborder']['memory_services']['k2http'] = { 'count': 10, 'memory': 0 }
-default['redborder']['memory_services']['kafka'] = { 'count': 150, 'memory': 0, 'max_limit': 524288 }
-default['redborder']['memory_services']['n2klocd'] = { 'count': 10, 'memory': 0 }
-default['redborder']['memory_services']['redborder-monitor'] = { 'count': 5, 'memory': 0, 'max_limit': 20000 }
-default['redborder']['memory_services']['redborder-nmsp'] = { 'count': 10, 'memory': 0 }
-default['redobrder']['memory_services']['snmptrap'] = { 'count': 10, 'memory': 0 }
-default['redborder']['memory_services']['snmp'] = { 'count': 5, 'memory': 0, 'max_limit': 10000 }
-default['redborder']['memory_services']['zookeeper'] = { 'count': 20, 'memory': 0 }
+default['redborder']['memory_services']['f2k']                 = { 'count': 40, 'memory': 0 }
+default['redborder']['memory_services']['k2http']              = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['kafka']               = { 'count': 150, 'memory': 0, 'max_limit': 524288 }
+default['redborder']['memory_services']['logstash']            = { 'count': 80, 'memory': 0 }
+default['redborder']['memory_services']['n2klocd']             = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['pmacct']              = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['radiusd']             = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['redborder-ale']        = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['redborder-exporter']   = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['redborder-monitor']    = { 'count': 5, 'memory': 0 }
+default['redborder']['memory_services']['redborder-net-tools']  = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['redborder-nmsp']       = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['redborder-satellite']  = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['redborder-scanner']    = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['zookeeper']            = { 'count': 20, 'memory': 0 }
+# Excluded services: chef-client, chrony, rsyslog, snmpd, snmptrapd, firewalld
 
 default['redborder']['services'] = {}
 default['redborder']['services']['chef-client'] = true
