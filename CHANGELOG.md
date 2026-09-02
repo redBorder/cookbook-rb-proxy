@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 4.7.0
+
+  - vimesa
+    - [a7867db] Add redborder-satellite settings
+
 ## 4.6.0
 
   - Nils
