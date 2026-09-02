@@ -24,15 +24,6 @@ default['redborder']['kafka']['host_index'] = 0
 default['redborder']['zookeeper']['zk_hosts'] = ''
 default['redborder']['zookeeper']['port'] = 2181
 
-# redborder-satellite
-cdomain = node['redborder']['cdomain']
-default['redborder']['redborder-satellite']['hub_url'] = "wss://redborder-hub.#{cdomain}/ws"
-default['redborder']['redborder-satellite']['auth_token'] = 'super-secret-agent-token'
-default['redborder']['redborder-satellite']['private_key_path'] = '/etc/redborder-satellite/redborder-satellite.key'
-default['redborder']['redborder-satellite']['agent_id'] = node['hostname']
-default['redborder']['redborder-satellite']['insecure_skip_verify'] = true
-default['redborder']['redborder-satellite']['commands'] = {}
-
 # memory
 default['redborder']['memory_services'] = {}
 default['redborder']['memory_services']['chef-server'] = { 'count': 10, 'memory': 0 }
