@@ -209,6 +209,14 @@ k2http_config 'Configure k2http' do
   end
 end
 
+rbsat_config 'Configure redborder-satellite' do
+  if proxy_services['redborder-satellite']
+    action [:add]
+  else
+    action [:remove]
+  end
+end
+
 rbcgroup_config 'Configure cgroups' do
   action :add
 end

@@ -41,6 +41,18 @@ default['redborder']['memory_services']['redborder-nmsp']       = { 'count': 10,
 default['redborder']['memory_services']['redborder-satellite']  = { 'count': 10, 'memory': 0 }
 default['redborder']['memory_services']['redborder-scanner']    = { 'count': 10, 'memory': 0 }
 default['redborder']['memory_services']['zookeeper']            = { 'count': 20, 'memory': 0 }
+default['redborder']['memory_services']['chef-server'] = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['f2k'] = { 'count': 40, 'memory': 0 }
+default['redborder']['memory_services']['http2k'] = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['k2http'] = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['kafka'] = { 'count': 150, 'memory': 0, 'max_limit': 524288 }
+default['redborder']['memory_services']['n2klocd'] = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['redborder-monitor'] = { 'count': 5, 'memory': 0, 'max_limit': 20000 }
+default['redborder']['memory_services']['redborder-nmsp'] = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['snmptrap'] = { 'count': 10, 'memory': 0 }
+default['redborder']['memory_services']['snmp'] = { 'count': 5, 'memory': 0, 'max_limit': 10000 }
+default['redborder']['memory_services']['zookeeper'] = { 'count': 20, 'memory': 0 }
+default['redborder']['memory_services']['redborder-satellite'] = { 'count': 10, 'memory': 0 }
 # Excluded services: chef-client, chrony, rsyslog, snmpd, snmptrapd, firewalld
 
 default['redborder']['services'] = {}
@@ -64,6 +76,7 @@ default['redborder']['services']['snmptrap'] = true
 default['redborder']['services']['rsyslog'] = true
 default['redborder']['services']['snmp'] = true
 default['redborder']['services']['zookeeper'] = true
+default['redborder']['services']['redborder-satellite'] = true
 
 default['redborder']['systemdservices']['chef-client'] = ['chef-client']
 default['redborder']['systemdservices']['chrony'] = ['chronyd']
@@ -85,5 +98,6 @@ default['redborder']['systemdservices']['snmptrap'] = ['snmptrapd']
 default['redborder']['systemdservices']['rsyslog'] = ['rsyslog']
 default['redborder']['systemdservices']['snmp'] = ['snmpd']
 default['redborder']['systemdservices']['zookeeper'] = ['zookeeper']
+default['redborder']['systemdservices']['redborder-satellite'] = ['redborder-satellite']
 
 default['redborder']['services']['redborder-net-tools'] = true

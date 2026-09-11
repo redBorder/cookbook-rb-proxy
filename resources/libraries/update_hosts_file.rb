@@ -23,6 +23,7 @@ module RbProxy
         node.normal['redborder']['resolve_host'] = resolved_ip
       end
       manager_registration_ip = node.dig('redborder', 'resolve_host')
+      cdomain = node['redborder']['cdomain']
       # Up until here, we resolved and stored the ip for /etc/hosts only if necessary
 
       running_services = node['redborder']['systemdservices'].values.flatten if node['redborder']['systemdservices']
@@ -51,6 +52,11 @@ module RbProxy
           hosts_hash[manager_registration_ip] << "#{new_service}.service.#{node['redborder']['cdomain']}"
         end
       end
+
+      implicit_services = [
+        "redborder-hub.#{cdomain}",
+      ]
+      hosts_hash[manager_registration_ip].concat(implicit_services)
 
       # Prepare the lines for the hosts file
       hosts_entries = []
