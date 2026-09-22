@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 5.0.0
+
+  - José Jiménez
+    - [27b912c] Add trap nodes
+
 ## 4.7.0
 
   - vimesa
