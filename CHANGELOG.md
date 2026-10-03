@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 5.0.1
+
+  - manegron
+    - [b5231d6] Upload cookbook only if opscode-erchef is active
+
 ## 5.0.0
 
   - José Jiménez
