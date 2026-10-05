@@ -1,6 +1,14 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 5.0.3
+
+  - Miguel Negrón
+    - [047e1b0] Merge pull request #115 from redBorder/improvement/#26794_disable_clamd_by_defaul
+  - manegron
+    - [047e1b0] Merge pull request #115 from redBorder/improvement/#26794_disable_clamd_by_defaul
+    - [3c085b0] Disable clamav by default
+
 ## 5.0.2
 
   - manegron
