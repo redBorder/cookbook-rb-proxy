@@ -1,6 +1,11 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 5.0.2
+
+  - manegron
+    - [b365312] Increase max limit mem for redborder-monitor
+
 ## 5.0.1
 
   - manegron
