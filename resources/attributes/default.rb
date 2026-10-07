@@ -46,6 +46,9 @@ default['redborder']['services']['clamav'] = false
 default['redborder']['services']['clamav-freshclam'] = false
 default['redborder']['services']['firewall'] = true
 default['redborder']['services']['f2k'] = true
+# Config-backup FTP/SFTP transfer target (cookbook-vsftpd) for devices behind
+# this proxy. Off by default since it opens FTP ports.
+default['redborder']['services']['ftp'] = false
 default['redborder']['services']['k2http'] = true
 default['redborder']['services']['kafka'] = true
 default['redborder']['services']['logstash'] = false
@@ -70,6 +73,7 @@ default['redborder']['systemdservices']['clamav'] = ['clamd@scan']
 default['redborder']['systemdservices']['clamav-freshclam'] = ['clamav-freshclam']
 default['redborder']['systemdservices']['firewall'] = ['firewalld']
 default['redborder']['systemdservices']['f2k'] = ['f2k']
+default['redborder']['systemdservices']['ftp'] = ['vsftpd']
 default['redborder']['systemdservices']['k2http'] = ['k2http']
 default['redborder']['systemdservices']['kafka'] = ['kafka']
 default['redborder']['systemdservices']['logstash'] = ['logstash']
