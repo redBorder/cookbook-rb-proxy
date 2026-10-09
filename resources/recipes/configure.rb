@@ -30,11 +30,29 @@ end
 rb_firewall_config 'Configure Firewall' do
   flow_sensor_in_proxy_nodes node.run_state['sensors_info_all']['flow-sensor']
   vault_sensor_in_proxy_nodes node.run_state['vault_sensor_in_proxy_nodes']
+  proxy_services proxy_services
   if proxy_services['firewall']
     action :add
   else
     action :remove
   end
+end
+
+# Config-backup transfer target for redborder-webui's BackupPolicy
+# (transfer_method 'ftp'/'sftp') when the device sits behind this proxy: the
+# device pushes its config here, and redborder-webui manages the ephemeral
+# accounts and reads the file back through redborder-satellite (see
+# rbsat_config's ftp_backup below). FTP ports are opened by rb_firewall_config
+# above, from proxy_services['ftp'].
+vsftpd_config 'Configure FTP backup transfer' do
+  action(proxy_services['ftp'] ? :add_ftp : :remove_ftp)
+end
+
+# Must run after vsftpd_config above, which creates ftp_upload_dir/incoming
+# for restorecon.
+rb_selinux_config 'Configure FTP SELinux labeling' do
+  action(proxy_services['ftp'] ? :add_ftp : :remove_ftp)
+  not_if { shell_out('getenforce').stdout.chomp == 'Disabled' }
 end
 
 zookeeper_config 'Configure Zookeeper' do
@@ -211,6 +229,7 @@ k2http_config 'Configure k2http' do
 end
 
 rbsat_config 'Configure redborder-satellite' do
+  ftp_backup proxy_services['ftp'] ? true : false
   if proxy_services['redborder-satellite']
     action [:add]
   else
