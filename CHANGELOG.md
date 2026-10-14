@@ -1,6 +1,14 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 5.1.0
+
+  - Miguel Negrón
+    - [4bb87f2] Merge pull request #117 from redBorder/improvement/#26867_reduce_chef_server_queries
+  - manegron
+    - [4bb87f2] Merge pull request #117 from redBorder/improvement/#26867_reduce_chef_server_queries
+    - [659bde1] Reduce chef server queries
+
 ## 5.0.3
 
   - Miguel Negrón
