@@ -182,8 +182,8 @@ n2klocd_config 'Configure n2klocd' do
   end
 end
 
-rb_exporter_config 'Configure rb-exporter' do
-  if proxy_services['redborder-exporter']
+rb_flow_agent_config 'Configure rb-flow-agent' do
+  if proxy_services['redborder-flow-agent']
     split_traffic_logstash split_traffic_logstash
     action [:add]
   else
