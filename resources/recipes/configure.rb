@@ -7,13 +7,6 @@
 
 proxy_services = proxy_services()
 
-begin
-  split_traffic_logstash_db = data_bag_item('rBglobal', 'splittraffic')
-  split_traffic_logstash = split_traffic_logstash_db['logstash']
-rescue
-  split_traffic_logstash = false
-end
-
 rb_common_config 'Configure common' do
   sensor_role 'proxy-sensor'
   action :configure
@@ -184,7 +177,6 @@ end
 
 rb_flow_agent_config 'Configure rb-flow-agent' do
   if proxy_services['redborder-flow-agent']
-    split_traffic_logstash split_traffic_logstash
     action [:add]
   else
     action [:remove]
