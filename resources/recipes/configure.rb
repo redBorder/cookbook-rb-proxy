@@ -7,13 +7,6 @@
 
 proxy_services = proxy_services()
 
-begin
-  split_traffic_logstash_db = data_bag_item('rBglobal', 'splittraffic')
-  split_traffic_logstash = split_traffic_logstash_db['logstash']
-rescue
-  split_traffic_logstash = false
-end
-
 rb_common_config 'Configure common' do
   sensor_role 'proxy-sensor'
   action :configure
@@ -182,9 +175,8 @@ n2klocd_config 'Configure n2klocd' do
   end
 end
 
-rb_exporter_config 'Configure rb-exporter' do
-  if proxy_services['redborder-exporter']
-    split_traffic_logstash split_traffic_logstash
+rb_flow_agent_config 'Configure rb-flow-agent' do
+  if proxy_services['redborder-flow-agent']
     action [:add]
   else
     action [:remove]
