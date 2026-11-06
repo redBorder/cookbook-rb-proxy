@@ -230,6 +230,9 @@ end
 
 rbsat_config 'Configure redborder-satellite' do
   ftp_backup proxy_services['ftp'] ? true : false
+  # redborder-webui backs up devices behind this proxy over SSH through
+  # redborder-proxy's rb_device_shell, which every proxy has
+  device_shell true
   if proxy_services['redborder-satellite']
     action [:add]
   else
