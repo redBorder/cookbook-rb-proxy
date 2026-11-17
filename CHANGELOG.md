@@ -1,6 +1,14 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 5.2.0
+
+  - nilsver
+    - [1a0793e] Replace rb-exporter with rb-flow-agent
+    - [0ecd13f] Require cookbook-rb-flow-agent
+    - [350c449] Remove logstash split traffic setting
+    - [f569e5c] remove require
+
 ## 5.1.0
 
   - Miguel Negrón
