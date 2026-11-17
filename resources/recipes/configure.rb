@@ -203,16 +203,17 @@ k2http_config 'Configure k2http' do
 end
 
 # Registration token of the hub cluster (generated per installation by
-# rb_configure_leader.sh). It is only used to enrol the satellite key.
-hub_secrets = {}
+# rb_configure_leader.sh). It is only used to enrol the satellite key. It lives in
+# rBglobal because proxies cannot read the passwords data bag.
+hub_registration = {}
 begin
-  hub_secrets = data_bag_item('passwords', 'hub').to_hash
+  hub_registration = data_bag_item('rBglobal', 'hub').to_hash
 rescue
-  hub_secrets = {}
+  hub_registration = {}
 end
 
 rbsat_config 'Configure redborder-satellite' do
-  auth_token hub_secrets['registration_token'].to_s
+  auth_token hub_registration['registration_token'].to_s
   if proxy_services['redborder-satellite']
     action [:add]
   else
