@@ -1,6 +1,16 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 6.0.0
+
+  - manegron
+    - [9fe724e] Update workflow
+    - [53764ce] Merge pull request #120 from redBorder/add_netflow2kafka_and_sflow2kafka
+    - [a80e058] Update attributes
+    - [6f69e9c] Remove pmacctd and f2k and add sflow2kafka and netflow2kafka
+  - Miguel Negrón
+    - [53764ce] Merge pull request #120 from redBorder/add_netflow2kafka_and_sflow2kafka
+
 ## 5.2.0
 
   - nilsver
