@@ -108,21 +108,21 @@ rb_net_tools_config 'Configure redborder-net-tools' do
   end
 end
 
-netflow2kafka_config 'Configure netflow2kafka' do
-  if proxy_services['netflow2kafka']
+rb_netflow2kafka_config 'Configure redborder-netflow2kafka' do
+  if proxy_services['redborder-netflow2kafka']
     sensors node.run_state['sensors_info']['flow-sensor']
-    memory node['redborder']['memory_services']['netflow2kafka']['memory']
+    memory node['redborder']['memory_services']['redborder-netflow2kafka']['memory']
     action [:add]
   else
     action [:remove]
   end
 end
 
-sflow2kafka_config 'Configure sflow2kafka' do
-  if proxy_services['sflow2kafka']
+rb_sflow2kafka_config 'Configure redborder-sflow2kafka' do
+  if proxy_services['redborder-sflow2kafka']
     sensors node.run_state['sensors_info']['flow-sensor']
     sflow2kafka_ip node['ipaddress']
-    memory node['redborder']['memory_services']['sflow2kafka']['memory']
+    memory node['redborder']['memory_services']['redborder-sflow2kafka']['memory']
     action [:add]
   else
     action [:remove]
