@@ -1,6 +1,18 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 6.1.0
+
+  - Miguel Negrón
+    - [ef5f099] Merge pull request #121 from redBorder/improvement/#157_do_not_use_a_standard_auth_token
+  - manegron
+    - [ef5f099] Merge pull request #121 from redBorder/improvement/#157_do_not_use_a_standard_auth_token
+    - [1355fb4] Merge branch 'development' into improvement/#157_do_not_use_a_standard_auth_token
+  - Juan Soto
+    - [fa0dee1] Merge branch 'master' into improvement/#157_do_not_use_a_standard_auth_token
+    - [b471396] Read the hub registration token from the rBglobal data bag
+    - [7188635] Pass the hub registration token from the passwords data bag to rbsat_config
+
 ## 6.0.0
 
   - manegron
