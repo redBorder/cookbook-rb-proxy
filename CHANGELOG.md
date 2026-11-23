@@ -1,6 +1,55 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 6.0.0
+
+  - manegron
+    - [9fe724e] Update workflow
+    - [53764ce] Merge pull request #120 from redBorder/add_netflow2kafka_and_sflow2kafka
+    - [a80e058] Update attributes
+    - [6f69e9c] Remove pmacctd and f2k and add sflow2kafka and netflow2kafka
+  - Miguel Negrón
+    - [53764ce] Merge pull request #120 from redBorder/add_netflow2kafka_and_sflow2kafka
+
+## 5.2.0
+
+  - nilsver
+    - [1a0793e] Replace rb-exporter with rb-flow-agent
+    - [0ecd13f] Require cookbook-rb-flow-agent
+    - [350c449] Remove logstash split traffic setting
+    - [f569e5c] remove require
+
+## 5.1.0
+
+  - Miguel Negrón
+    - [4bb87f2] Merge pull request #117 from redBorder/improvement/#26867_reduce_chef_server_queries
+  - manegron
+    - [4bb87f2] Merge pull request #117 from redBorder/improvement/#26867_reduce_chef_server_queries
+    - [659bde1] Reduce chef server queries
+
+## 5.0.3
+
+  - Miguel Negrón
+    - [047e1b0] Merge pull request #115 from redBorder/improvement/#26794_disable_clamd_by_defaul
+  - manegron
+    - [047e1b0] Merge pull request #115 from redBorder/improvement/#26794_disable_clamd_by_defaul
+    - [3c085b0] Disable clamav by default
+
+## 5.0.2
+
+  - manegron
+    - [b365312] Increase max limit mem for redborder-monitor
+
+## 5.0.1
+
+  - manegron
+    - [b5231d6] Upload cookbook only if opscode-erchef is active
+
+## 5.0.0
+
+  - José Jiménez
+    - [27b912c] Add trap nodes
+
 ## 4.7.0
 
   - vimesa

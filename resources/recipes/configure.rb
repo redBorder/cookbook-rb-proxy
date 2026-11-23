@@ -7,13 +7,6 @@
 
 proxy_services = proxy_services()
 
-begin
-  split_traffic_logstash_db = data_bag_item('rBglobal', 'splittraffic')
-  split_traffic_logstash = split_traffic_logstash_db['logstash']
-rescue
-  split_traffic_logstash = false
-end
-
 rb_common_config 'Configure common' do
   sensor_role 'proxy-sensor'
   action :configure
@@ -70,6 +63,7 @@ end
 snmp_config 'Configure snmp' do
   hostname node['hostname']
   cdomain node['redborder']['cdomain']
+  trap_sensors node.run_state['proxy_trap_nodes']
   if proxy_services['snmp']
     action :add
   else
@@ -114,19 +108,21 @@ rb_net_tools_config 'Configure redborder-net-tools' do
   end
 end
 
-f2k_config 'Configure f2k' do
-  sensors node.run_state['sensors_info']['flow-sensor']
-  if proxy_services['f2k']
+rb_netflow2kafka_config 'Configure redborder-netflow2kafka' do
+  if proxy_services['redborder-netflow2kafka']
+    sensors node.run_state['sensors_info']['flow-sensor']
+    memory node['redborder']['memory_services']['redborder-netflow2kafka']['memory']
     action [:add]
   else
     action [:remove]
   end
 end
 
-pmacct_config 'Configure pmacct' do
-  sensors node.run_state['sensors_info']['flow-sensor']
-  if proxy_services['pmacct']
-    sfacctd_ip node['ipaddress']
+rb_sflow2kafka_config 'Configure redborder-sflow2kafka' do
+  if proxy_services['redborder-sflow2kafka']
+    sensors node.run_state['sensors_info']['flow-sensor']
+    sflow2kafka_ip node['ipaddress']
+    memory node['redborder']['memory_services']['redborder-sflow2kafka']['memory']
     action [:add]
   else
     action [:remove]
@@ -181,9 +177,8 @@ n2klocd_config 'Configure n2klocd' do
   end
 end
 
-rb_exporter_config 'Configure rb-exporter' do
-  if proxy_services['redborder-exporter']
-    split_traffic_logstash split_traffic_logstash
+rb_flow_agent_config 'Configure rb-flow-agent' do
+  if proxy_services['redborder-flow-agent']
     action [:add]
   else
     action [:remove]
@@ -222,7 +217,11 @@ rbcgroup_config 'Configure cgroups' do
 end
 
 rb_clamav_config 'Configure ClamAV' do
-  action :add
+  if proxy_services['clamav']
+    action :add
+  else
+    action :remove
+  end
 end
 
 rb_chrony_config 'Configure Chrony' do
