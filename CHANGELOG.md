@@ -1,6 +1,20 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 6.2.0
+
+  - Miguel Negrón
+    - [201276e] Merge pull request #116 from redBorder/feature/#26715_make_backup_policy_compatible_with_proxies
+  - manegron
+    - [201276e] Merge pull request #116 from redBorder/feature/#26715_make_backup_policy_compatible_with_proxies
+    - [80babd0] Merge remote-tracking branch 'origin/development' into feature/#26715_make_backup_policy_compatible_with_proxies
+  - Juan Soto
+    - [1efbea0] Merge remote-tracking branch 'origin/development' into feature/#26715_make_backup_policy_compatible_with_proxies
+    - [6026549] Register the satellite device_shell command on proxies
+    - [9cf6cc8] Keep rbcli service toggles when rewriting services.json on proxies
+    - [c472bbc] Configure vsftpd, SELinux, firewall and satellite FTP commands from the proxy ftp service
+    - [8291c94] Add ftp proxy service mapped to vsftpd, disabled by default
+
 ## 6.1.0
 
   - Miguel Negrón
