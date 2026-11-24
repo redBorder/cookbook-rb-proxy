@@ -1,6 +1,36 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 6.1.0
+
+  - Miguel Negrón
+    - [ef5f099] Merge pull request #121 from redBorder/improvement/#157_do_not_use_a_standard_auth_token
+  - manegron
+    - [ef5f099] Merge pull request #121 from redBorder/improvement/#157_do_not_use_a_standard_auth_token
+    - [1355fb4] Merge branch 'development' into improvement/#157_do_not_use_a_standard_auth_token
+  - Juan Soto
+    - [fa0dee1] Merge branch 'master' into improvement/#157_do_not_use_a_standard_auth_token
+    - [b471396] Read the hub registration token from the rBglobal data bag
+    - [7188635] Pass the hub registration token from the passwords data bag to rbsat_config
+
+## 6.0.0
+
+  - manegron
+    - [9fe724e] Update workflow
+    - [53764ce] Merge pull request #120 from redBorder/add_netflow2kafka_and_sflow2kafka
+    - [a80e058] Update attributes
+    - [6f69e9c] Remove pmacctd and f2k and add sflow2kafka and netflow2kafka
+  - Miguel Negrón
+    - [53764ce] Merge pull request #120 from redBorder/add_netflow2kafka_and_sflow2kafka
+
+## 5.2.0
+
+  - nilsver
+    - [1a0793e] Replace rb-exporter with rb-flow-agent
+    - [0ecd13f] Require cookbook-rb-flow-agent
+    - [350c449] Remove logstash split traffic setting
+    - [f569e5c] remove require
+
 ## 5.1.0
 
   - Miguel Negrón

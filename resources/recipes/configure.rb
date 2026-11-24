@@ -7,13 +7,6 @@
 
 proxy_services = proxy_services()
 
-begin
-  split_traffic_logstash_db = data_bag_item('rBglobal', 'splittraffic')
-  split_traffic_logstash = split_traffic_logstash_db['logstash']
-rescue
-  split_traffic_logstash = false
-end
-
 rb_common_config 'Configure common' do
   sensor_role 'proxy-sensor'
   action :configure
@@ -133,19 +126,21 @@ rb_net_tools_config 'Configure redborder-net-tools' do
   end
 end
 
-f2k_config 'Configure f2k' do
-  sensors node.run_state['sensors_info']['flow-sensor']
-  if proxy_services['f2k']
+rb_netflow2kafka_config 'Configure redborder-netflow2kafka' do
+  if proxy_services['redborder-netflow2kafka']
+    sensors node.run_state['sensors_info']['flow-sensor']
+    memory node['redborder']['memory_services']['redborder-netflow2kafka']['memory']
     action [:add]
   else
     action [:remove]
   end
 end
 
-pmacct_config 'Configure pmacct' do
-  sensors node.run_state['sensors_info']['flow-sensor']
-  if proxy_services['pmacct']
-    sfacctd_ip node['ipaddress']
+rb_sflow2kafka_config 'Configure redborder-sflow2kafka' do
+  if proxy_services['redborder-sflow2kafka']
+    sensors node.run_state['sensors_info']['flow-sensor']
+    sflow2kafka_ip node['ipaddress']
+    memory node['redborder']['memory_services']['redborder-sflow2kafka']['memory']
     action [:add]
   else
     action [:remove]
@@ -200,9 +195,8 @@ n2klocd_config 'Configure n2klocd' do
   end
 end
 
-rb_exporter_config 'Configure rb-exporter' do
-  if proxy_services['redborder-exporter']
-    split_traffic_logstash split_traffic_logstash
+rb_flow_agent_config 'Configure rb-flow-agent' do
+  if proxy_services['redborder-flow-agent']
     action [:add]
   else
     action [:remove]
@@ -228,11 +222,22 @@ k2http_config 'Configure k2http' do
   end
 end
 
+# Registration token of the hub cluster (generated per installation by
+# rb_configure_leader.sh). It is only used to enrol the satellite key. It lives in
+# rBglobal because proxies cannot read the passwords data bag.
+hub_registration = {}
+begin
+  hub_registration = data_bag_item('rBglobal', 'hub').to_hash
+rescue
+  hub_registration = {}
+end
+
 rbsat_config 'Configure redborder-satellite' do
   ftp_backup proxy_services['ftp'] ? true : false
   # redborder-webui backs up devices behind this proxy over SSH through
   # redborder-proxy's rb_device_shell, which every proxy has
   device_shell true
+  auth_token hub_registration['registration_token'].to_s
   if proxy_services['redborder-satellite']
     action [:add]
   else
