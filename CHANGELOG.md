@@ -1,6 +1,14 @@
 cookbook-rb-proxy CHANGELOG
 ===============
 
+## 7.0.0
+
+  - Miguel Negrón
+    - [437a4de] Merge pull request #122 from redBorder/improvement/#27292_migrate_to_cinc
+  - manegron
+    - [437a4de] Merge pull request #122 from redBorder/improvement/#27292_migrate_to_cinc
+    - [4e40c25] Migrate to cinc
+
 ## 6.2.0
 
   - Miguel Negrón
