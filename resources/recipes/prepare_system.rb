@@ -14,7 +14,7 @@ if File.exist?('/etc/redborder/sensor-installed.txt')
 end
 
 # Configure and enable chef-client
-dnf_package 'redborder-chef-client' do
+dnf_package 'redborder-cinc-client' do
   action :upgrade
 end
 
@@ -97,8 +97,12 @@ template '/etc/hosts' do
   variables(hosts_entries: hosts_entries)
 end
 
-# Build service list for rbcli
-services = node['redborder']['services'] || []
+# Build service list for rbcli. From proxy_services (cookbook defaults,
+# overwrite and this same file), not node['redborder']['services'] alone:
+# rbcli service enable/disable on a proxy only persists here (its node
+# override is reset on every chef-client run), so rewriting the file from
+# the node attributes would undo every toggle.
+services = proxy_services
 systemd_services = node['redborder']['systemdservices'] || []
 service_enablement = {}
 
