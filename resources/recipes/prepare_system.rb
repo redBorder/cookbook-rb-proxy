@@ -28,14 +28,6 @@ template '/etc/sysconfig/chef-client' do
   )
 end
 
-template '/etc/logrotate.d/logstash' do
-  source 'logstash_log-rotate.erb'
-  owner 'root'
-  group 'root'
-  mode 0644
-  retries 2
-end
-
 service 'chef-client' do
   if node['redborder']['services']['chef-client']
     action [:enable, :start]
@@ -71,7 +63,7 @@ node.run_state['proxy_vmware_exsi_vm_nodes'] = get_nodes('vmware-exsi-vm-sensor'
 node.run_state['proxy_http_agent_nodes'] = get_nodes('http_agent-sensor')
 node.run_state['proxy_trap_nodes'] = get_nodes('trap-sensor')
 
-# get logstash pipelines
+# get redborder-vortex pipelines
 node.default['pipelines'] = get_pipelines()
 
 # get string with all zookeeper hosts and port separated by commas, its needed for multiples services
