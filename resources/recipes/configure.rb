@@ -147,15 +147,41 @@ rb_sflow2kafka_config 'Configure redborder-sflow2kafka' do
   end
 end
 
-logstash_config 'Configure logstash' do
+# logstash has been replaced by redborder-vortex: clean up nodes upgraded from older versions
+service 'logstash' do
+  ignore_failure true
+  action [:stop, :disable]
+  only_if 'rpm -q logstash'
+end
+
+%w(logstash logstash-rules redborder-logstash-plugins).each do |pkg|
+  dnf_package pkg do
+    action :remove
+    # rpm -q matches the package name, not Provides (redborder-vortex Provides: logstash)
+    only_if "rpm -q #{pkg}"
+  end
+end
+
+%w(/etc/logstash /etc/systemd/system/logstash.service.d).each do |dir|
+  directory dir do
+    recursive true
+    action :delete
+  end
+end
+
+file '/etc/logrotate.d/logstash' do
+  action :delete
+end
+
+rb_vortex_config 'Configure redborder-vortex' do
   cdomain node['redborder']['cdomain']
   flow_nodes node.run_state['sensors_info_all']['flow-sensor']
   vault_nodes node.run_state['sensors_info_all']['vault-sensor']
   device_nodes node.run_state['sensors_info_all']['device-sensor']
   snmp_nodes node.run_state['sensors_info_all']['snmp-sensor']
   redfish_nodes node.run_state['sensors_info_all']['redfish-sensor']
-  logstash_pipelines node.default['pipelines']
-  if !logstash_pipelines.nil? && !logstash_pipelines.empty?
+  vortex_pipelines node.default['pipelines']
+  if !vortex_pipelines.nil? && !vortex_pipelines.empty?
     action [:add]
   else
     action [:remove]
